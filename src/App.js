@@ -45,7 +45,7 @@ store.setState("queue", [], persist);
 store.setState("volume", 7, persist);
 store.setState("isPlaying", false);
 store.setState("isSideBarCollapsed", false);
-store.setState("progress", 0);
+store.setState("progress", 0, persist);
 store.setState("currentTime", 0, persist);
 store.setState("albumHistory", [], persist);
 
@@ -73,11 +73,16 @@ function App() {
   }, [sider]);
 
   useEffect(() => {
-    if (!localStorage.getItem("volume")) {
-      localStorage.setItem("volume", 10);
-      store.setState("volume", 10);
+    if (playerRef) {
+      if (!localStorage.getItem("volume")) {
+        localStorage.setItem("volume", 10);
+        store.setState("volume", 10);
+      }
+      try {
+        playerRef.current.seekTo(store.getState("progress"));
+      } catch {}
     }
-  }, []);
+  }, [playerRef]);
 
   return (
     <>

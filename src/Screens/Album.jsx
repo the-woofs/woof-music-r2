@@ -138,7 +138,7 @@ function Album() {
             </Typography.Title>
             <div className='album-sub'>
               {data && data.artists && (
-                <Avatar.Group max={2} size='medium'>
+                <Avatar.Group maxCount={2} size='medium'>
                   {avatars.map((avatar) => (
                     <Avatar src={avatar} alt='artist' />
                   ))}
