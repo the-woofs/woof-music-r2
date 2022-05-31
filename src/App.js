@@ -72,6 +72,13 @@ function App() {
     console.log(sider.current.style.width);
   }, [sider]);
 
+  useEffect(() => {
+    if (!localStorage.getItem("volume")) {
+      localStorage.setItem("volume", 10);
+      store.setState("volume", 10);
+    }
+  }, []);
+
   return (
     <>
       <Router>
