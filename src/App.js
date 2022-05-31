@@ -143,6 +143,7 @@ function App() {
                   if (queue.length > trackId) {
                     store.setState("trackId", nextTrackId);
                     store.setState("playingTrack", queue[nextTrackId]);
+                    store.setState("isPlaying", true);
                   }
                 }}
                 onProgress={(e) => {
