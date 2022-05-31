@@ -42,7 +42,7 @@ store.setState("playingTrack", {}, persist);
 store.setState("trackId", 0, persist);
 store.setState("activePlaylistId", null, persist);
 store.setState("queue", [], persist);
-store.setState("volume", 10, persist);
+store.setState("volume", 7, persist);
 store.setState("isPlaying", false);
 store.setState("isSideBarCollapsed", false);
 store.setState("progress", 0);
@@ -125,7 +125,7 @@ function App() {
                 url={playingTrack.url}
                 playing={isPlaying}
                 ref={playerRef}
-                volume={volume / 10}
+                volume={volume ? volume / 10 : 1}
                 onEnded={() => {
                   store.setState("isPlaying", false);
                   store.setState("isPlayerBusy", 0);
