@@ -1,53 +1,59 @@
-import { Avatar } from "antd";
+import { Avatar, Button } from "antd";
 import Meta from "antd/lib/card/Meta";
 import "./index.css";
+
+import { PauseOutlined } from "@ant-design/icons";
+import { PlayArrow } from "@mui/icons-material";
 
 import store from "../../store";
 
 function Mobile() {
   const [track] = store.useState("playingTrack");
+  const [isPlaying, setIsPlaying] = store.useState("isPlaying");
 
   return (
     <div className='mobile'>
       {track && (
         <>
           <Meta
+            style={{
+              padding: "0px 14px",
+            }}
             avatar={
               <Avatar
+                style={{
+                  objectFit: "contain",
+                  maxHeight: "100%",
+                  maxWidth: "100%",
+                }}
+                shape='square'
+                size='large'
                 src={
                   track.coverArt
                     ? track.coverArt
                     : "https://via.placeholder.com/150"
                 }
-                size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
-                shape='square'
               />
             }
             title={track.name}
             description={
               <>
                 {track.artists &&
-                  track.artists.map((artist, index) => (
-                    <>
-                      {index !== 0 && ", "}
-                      {artist.name}
-                    </>
-                  ))}
+                  track.artists.map((artist) => artist.name).join(", ")}
               </>
             }
           />
+          <div>
+            <Button
+              type='primary'
+              shape='circle'
+              onClick={() => {
+                setIsPlaying(!isPlaying);
+              }}
+              icon={<>{isPlaying ? <PauseOutlined /> : <PlayArrow />}</>}
+            ></Button>
+          </div>
         </>
-      )}
-      {!track && (
-        <Meta
-          avatar={
-            <Avatar
-              src={"https://via.placeholder.com/150"}
-              size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
-              shape='square'
-            />
-          }
-        />
       )}
     </div>
   );

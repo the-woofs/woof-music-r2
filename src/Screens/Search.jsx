@@ -15,6 +15,7 @@ import { Option } from "antd/lib/mentions";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import store from "../store";
+import "../index.css";
 
 function SearchPage() {
   const [data, setData] = useState([]);
@@ -133,6 +134,10 @@ function SearchPage() {
                 }
               >
                 <List.Item
+                  className='search-item'
+                  onClick={() => {
+                    playYoutube(item);
+                  }}
                   actions={[
                     <Button
                       shape='circle'

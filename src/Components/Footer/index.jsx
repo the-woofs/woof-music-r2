@@ -19,49 +19,50 @@ function Footer() {
           <Center />
           <Right className='rt' />
         </>
-        <Mobile className='mobile' />
       </div>
-      <Space
-        className='mobile-footer'
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-        wrap
-      >
-        <Button
-          onClick={() => {
-            navigate("/");
+      <div className='mobile-footer'>
+        <Mobile className='mobile' />
+        <Space
+          style={{
+            width: "100vw",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
           }}
-          type='text'
-          shape='round'
-          icon={<HomeFilled />}
+          wrap
         >
-          Home
-        </Button>
-        <Button
-          onClick={() => {
-            navigate("/search");
-          }}
-          type='text'
-          shape='round'
-          icon={<SearchOutlined />}
-        >
-          Search
-        </Button>
-        <Button
-          type='text'
-          shape='round'
-          onClick={() => {
-            navigate("/playlist");
-          }}
-          icon={<DatabaseFilled />}
-        >
-          Library
-        </Button>
-      </Space>
+          <Button
+            onClick={() => {
+              navigate("/");
+            }}
+            type='text'
+            shape='round'
+            icon={<HomeFilled />}
+          >
+            Home
+          </Button>
+          <Button
+            onClick={() => {
+              navigate("/search");
+            }}
+            type='text'
+            shape='round'
+            icon={<SearchOutlined />}
+          >
+            Search
+          </Button>
+          <Button
+            type='text'
+            shape='round'
+            onClick={() => {
+              navigate("/playlist");
+            }}
+            icon={<DatabaseFilled />}
+          >
+            Library
+          </Button>
+        </Space>
+      </div>
     </>
   );
 }

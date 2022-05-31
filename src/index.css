@@ -47,6 +47,23 @@
   margin-right: 0.5rem;
 }
 
+.ant-layout-footer {
+  height: 18vh;
+}
+
+.album-history {
+  height: calc(85vh - 32px - 2rem);
+}
+
+.search-item {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-item:hover {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (max-width: 792px) {
   .content {
     width: 100vw;
@@ -67,5 +84,12 @@
   .album-info .title {
     font-size: 5vh;
     text-align: justify;
+  }
+
+  .ant-layout-footer {
+    height: 25vh;
+  }
+  .album-history {
+    height: calc(65vh - 32px - 2rem - 72px);
   }
 }

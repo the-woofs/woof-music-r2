@@ -1,12 +1,8 @@
-import {
-  DatabaseFilled,
-  PlusOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
-import { Button, Card, PageHeader, Space, Typography } from "antd";
+import { Card, PageHeader, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { useNavigate } from "react-router-dom";
 import store from "../store";
+import "../index.css";
 
 function Main() {
   const [data] = store.useState("albumHistory");
@@ -19,12 +15,12 @@ function Main() {
       />
       <div
         style={{
-          height: "calc(85vh - 32px - 2rem)",
           marginTop: "1rem",
           overflowY: "auto",
           overflowX: "hidden",
           padding: "0 2rem",
         }}
+        className='album-history'
       >
         {data && (
           <>

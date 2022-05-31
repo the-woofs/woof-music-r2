@@ -6,6 +6,7 @@ import Main from "./Screens/Main";
 import Artist from "./Screens/Artist";
 import Playlist from "./Screens/Playlist";
 import Search from "./Screens/Search";
+import Status from "./Screens/Status";
 import Album from "./Screens/Album";
 import Track from "./Screens/Track";
 import Footer from "./Components/Footer";
@@ -125,11 +126,9 @@ function App() {
               right: 0,
               bottom: 0,
               width: "100%",
-              height: footerHeight,
               backgroundColor: "#141414",
               borderTop: "1px solid #303030",
-              paddingLeft: "14px",
-              paddingRight: "14px",
+              padding: "0px",
             }}
           >
             {playingTrack && (
@@ -178,6 +177,7 @@ function Redirects() {
         <Route path='/track/:id' element={<Track />} />
         <Route path='/artist/:id' element={<Artist />} />
         <Route path='/album/:id' element={<Album />} />
+        <Route path='status' element={<Status />} />
       </Routes>
     </>
   );
