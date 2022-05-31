@@ -1,4 +1,9 @@
-import { Card, Divider, Typography } from "antd";
+import {
+  DatabaseFilled,
+  PlusOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
+import { Button, Card, Divider, PageHeader, Space, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { useNavigate } from "react-router-dom";
 import store from "../store";
@@ -8,6 +13,29 @@ function Main() {
   const navigate = useNavigate();
   return (
     <>
+      <PageHeader
+        title='Woof Music Alpha'
+        avatar={{ src: "https://github.com/the-woofs.png" }}
+        extra={[
+          <Button
+            onClick={() => {
+              navigate("/search");
+            }}
+            icon={<SearchOutlined />}
+          >
+            Find Songs
+          </Button>,
+          <Button
+            onClick={() => {
+              navigate("/playlist");
+            }}
+            icon={<DatabaseFilled />}
+          >
+            Playlists
+          </Button>,
+          <Button icon={<PlusOutlined />}>Create Playlist</Button>,
+        ]}
+      />
       <div
         style={{
           height: "calc(85vh - 32px - 2rem)",
@@ -17,8 +45,6 @@ function Main() {
           padding: "0 2rem",
         }}
       >
-        <Typography.Title level={1}>Woof Music Alpha 0.1</Typography.Title>
-        <Divider />
         {data && (
           <>
             <Typography.Title level={3}>Albums You've Visited</Typography.Title>
