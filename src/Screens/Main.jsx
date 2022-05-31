@@ -3,7 +3,7 @@ import {
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Button, Card, Divider, PageHeader, Space, Typography } from "antd";
+import { Button, Card, PageHeader, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { useNavigate } from "react-router-dom";
 import store from "../store";
