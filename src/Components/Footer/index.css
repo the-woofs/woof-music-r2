@@ -64,9 +64,35 @@
   line-height: 0%;
 }
 
+.mobile {
+  display: none;
+}
+
+.mobile-footer {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+}
+
+.mobile-footer * {
+  display: none;
+}
+
 @media screen and (max-width: 792px) {
   .footer {
     grid-template-columns: 1fr;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .mobile-footer {
+    display: block;
+  }
+
+  .mobile-footer * {
+    display: block;
   }
 
   .left-component {
@@ -74,6 +100,10 @@
   }
 
   .right-component {
+    display: none;
+  }
+
+  .center-component {
     display: none;
   }
 }

@@ -4,11 +4,11 @@ import "./index.css";
 
 import store from "../../store";
 
-function Left() {
+function Mobile() {
   const [track] = store.useState("playingTrack");
 
   return (
-    <div className='left-component'>
+    <div className='mobile'>
       {track && (
         <>
           <Meta
@@ -53,4 +53,4 @@ function Left() {
   );
 }
 
-export default Left;
+export default Mobile;

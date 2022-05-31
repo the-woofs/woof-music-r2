@@ -51,4 +51,21 @@
   .content {
     width: 100vw;
   }
+  .album-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2.5%;
+  }
+  .album-cover {
+    object-fit: cover;
+    width: 50vw;
+    height: 50vw;
+    margin: unset;
+  }
+  .album-info .title {
+    font-size: 5vh;
+    text-align: justify;
+  }
 }

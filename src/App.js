@@ -118,6 +118,7 @@ function App() {
               </Layout.Content>
             </Layout>
           </Layout>
+
           <Layout.Footer
             style={{
               position: "fixed",

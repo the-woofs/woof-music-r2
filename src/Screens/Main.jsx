@@ -3,7 +3,7 @@ import {
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Button, Card, PageHeader, Typography } from "antd";
+import { Button, Card, PageHeader, Space, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { useNavigate } from "react-router-dom";
 import store from "../store";
@@ -16,25 +16,6 @@ function Main() {
       <PageHeader
         title='Woof Music Alpha'
         avatar={{ src: "https://github.com/the-woofs.png" }}
-        extra={[
-          <Button
-            onClick={() => {
-              navigate("/search");
-            }}
-            icon={<SearchOutlined />}
-          >
-            Find Songs
-          </Button>,
-          <Button
-            onClick={() => {
-              navigate("/playlist");
-            }}
-            icon={<DatabaseFilled />}
-          >
-            Playlists
-          </Button>,
-          <Button icon={<PlusOutlined />}>Create Playlist</Button>,
-        ]}
       />
       <div
         style={{

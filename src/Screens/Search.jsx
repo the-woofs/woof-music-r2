@@ -84,13 +84,13 @@ function SearchPage() {
             onChange={(value) => {
               setSearchMode(value);
             }}
-            style={{ width: "10%" }}
+            style={{ width: "90px" }}
           >
             <Option value='song'>Songs</Option>
             <Option value='album'>Albums</Option>
           </Select>
           <Input.Search
-            style={{ width: "90%" }}
+            style={{ width: "calc(100% - 90px)" }}
             allowClear
             onSearch={(value) => {
               console.log(value);
