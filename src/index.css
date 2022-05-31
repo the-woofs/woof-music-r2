@@ -1,0 +1,43 @@
+.content {
+  background-color: #141414;
+  width: calc(100vw - 200px);
+}
+
+.hoverable-card {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.hoverable-card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.album-head {
+  height: 50vh;
+  background-color: #161616;
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5%;
+}
+
+.album-cover {
+  grid-area: img;
+  object-fit: cover;
+  height: 100%;
+  margin-right: 2rem;
+}
+
+.album-info .title {
+  font-size: 12vh;
+}
+
+.artists-name-album {
+  font-size: 3vh;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 792px) {
+  .content {
+    width: 100vw;
+  }
+}

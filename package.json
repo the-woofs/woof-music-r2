@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.20.6",
+    "emotion": "^11.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-player": "^2.10.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "state-pool": "^0.7.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yt-channel-info": "^3.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
