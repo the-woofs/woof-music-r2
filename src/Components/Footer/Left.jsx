@@ -1,14 +1,11 @@
-import { Avatar, Button } from "antd";
+import { Avatar } from "antd";
 import Meta from "antd/lib/card/Meta";
 import "./index.css";
 
 import store from "../../store";
-import { useNavigate } from "react-router-dom";
 
 function Left() {
   const [track] = store.useState("playingTrack");
-
-  const navigate = useNavigate();
 
   return (
     <div className='left-component'>
@@ -32,18 +29,7 @@ function Left() {
                 track.artists.map((artist, index) => (
                   <>
                     {index !== 0 && ", "}
-                    <Button
-                      type='link'
-                      onClick={() => {
-                        navigate("artist/" + artist.artistId);
-                      }}
-                      style={{
-                        padding: 0,
-                        margin: 0,
-                      }}
-                    >
-                      {artist.name}
-                    </Button>
+                    {artist.name}
                   </>
                 ))}
             </>

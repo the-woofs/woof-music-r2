@@ -1,5 +1,5 @@
 import { PlayCircleFilled, PlusOutlined } from "@ant-design/icons";
-import { Launch, PlayArrowSharp } from "@mui/icons-material";
+import { PlayArrowSharp } from "@mui/icons-material";
 import {
   Avatar,
   Button,
@@ -9,7 +9,6 @@ import {
   List,
   Menu,
   Select,
-  Tooltip,
 } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { Option } from "antd/lib/mentions";
@@ -161,6 +160,7 @@ function SearchPage() {
                       .map((artist) => artist.name)
                       .join(", ")}
                   />
+                  <p>{item.album.name}</p>
                 </List.Item>
               </Dropdown>
             )}
@@ -186,37 +186,8 @@ function SearchPage() {
                   style={{ width: 226 }}
                   className='hoverable-card'
                   onClick={() => {
-                    console.log("clicked");
+                    navigate("/album/" + album.albumId);
                   }}
-                  actions={[
-                    <Tooltip title='Open'>
-                      <Button
-                        shape='circle'
-                        icon={<Launch />}
-                        type='text'
-                        onClick={() => {
-                          navigate("/album/" + album.albumId);
-                        }}
-                      />
-                    </Tooltip>,
-                    <Tooltip title='Play'>
-                      <Button
-                        shape='circle'
-                        icon={<PlayArrowSharp />}
-                        type='text'
-                        onClick={() => {
-                          playYoutube(album);
-                        }}
-                      />
-                    </Tooltip>,
-                    <Tooltip title='Add To Queue'>
-                      <Button
-                        shape='circle'
-                        icon={<PlusOutlined />}
-                        type='text'
-                      />
-                    </Tooltip>,
-                  ]}
                   cover={
                     album &&
                     album.thumbnails &&

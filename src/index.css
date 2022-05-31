@@ -32,8 +32,19 @@
 }
 
 .artists-name-album {
-  font-size: 3vh;
+  font-size: 1rem;
   margin-top: 1rem;
+}
+
+.album-sub {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ant-avatar-group {
+  max-width: fit-content;
+  margin-right: 0.5rem;
 }
 
 @media screen and (max-width: 792px) {

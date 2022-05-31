@@ -47,6 +47,7 @@ store.setState("isPlaying", false);
 store.setState("isSideBarCollapsed", false);
 store.setState("progress", 0);
 store.setState("currentTime", 0, persist);
+store.setState("albumHistory", [], persist);
 
 function App() {
   const [isCollapsed, setIsCollapsed] = store.useState("isSideBarCollapsed");
