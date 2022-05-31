@@ -198,6 +198,10 @@ function Album() {
               }
             >
               <List.Item
+                className='search-item'
+                onClick={() => {
+                  playFromAlbum(data.songs, item, index);
+                }}
                 actions={[
                   <Button
                     shape='circle'
