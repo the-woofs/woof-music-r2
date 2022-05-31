@@ -1,5 +1,3 @@
-import store from "../store";
-
 function Main() {
   return <></>;
 }

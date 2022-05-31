@@ -9,7 +9,7 @@ function Album() {
   const { id } = useParams();
 
   const [data, setData] = useState([]);
-  const [avatars, setAvatars] = useState([]);
+  //  const [avatars, setAvatars] = useState([]);
 
   const getData = async () => {
     const res = await fetch(
@@ -23,6 +23,7 @@ function Album() {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getChannelInfo = async (id) => {
