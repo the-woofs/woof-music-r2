@@ -6,9 +6,12 @@ import {
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
+import store from "./store";
 
 function MenuItems() {
   const navigate = useNavigate();
+  const [isCreatingPlaylist, setIsCreatingPlaylist] =
+    store.useState("isCreatingPlaylist");
 
   const path = window.location.pathname;
 
@@ -53,7 +56,14 @@ function MenuItems() {
         >
           Playlists
         </Menu.Item>
-        <Menu.Item icon={<PlusOutlined />}>Create Playlist</Menu.Item>
+        <Menu.Item
+          onClick={() => {
+            setIsCreatingPlaylist(!isCreatingPlaylist);
+          }}
+          icon={<PlusOutlined />}
+        >
+          Create Playlist
+        </Menu.Item>
       </Menu>
     </>
   );
