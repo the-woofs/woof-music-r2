@@ -59,11 +59,12 @@ function App() {
   const [volume] = store.useState("volume");
   const [queue] = store.useState("queue");
   const [trackId] = store.useState("trackId");
-  const footerHeight = "18vh";
 
   const playerRef = useRef();
+  const footerRef = useRef();
   const sider = useRef();
   store.setState("playerRef", playerRef);
+  store.setState("footerRef", footerRef);
 
   useEffect(() => {
     console.log(isCollapsed);
@@ -93,7 +94,7 @@ function App() {
             <Layout.Sider
               collapsible
               style={{
-                height: "calc(100vh - " + footerHeight + ")",
+                height: "calc(100vh - 18vh)",
               }}
               breakpoint='lg'
               collapsedWidth='0'
@@ -110,7 +111,6 @@ function App() {
               <Layout.Content
                 className='content'
                 style={{
-                  height: `calc(100vh - ${footerHeight})`,
                   position: "fixed",
                   right: 0,
                 }}
@@ -130,6 +130,7 @@ function App() {
               borderTop: "1px solid #303030",
               padding: "0px",
             }}
+            ref={footerRef}
           >
             {playingTrack && (
               <ReactPlayer

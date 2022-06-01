@@ -105,6 +105,16 @@ function Center() {
 
 function Status() {
   const [track] = store.useState("playingTrack");
+  const [footerRef] = store.useState("footerRef");
+  const [, setFooterHeight] = useState("footerHeight");
+
+  useEffect(() => {
+    if (footerRef.current) {
+      console.log(footerRef.current);
+      footerRef.current.className = "footer-status";
+      setFooterHeight("15vh");
+    }
+  }, [footerRef]);
 
   return (
     <>

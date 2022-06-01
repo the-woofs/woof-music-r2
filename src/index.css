@@ -110,7 +110,15 @@
   .ant-layout-footer {
     height: 25vh;
   }
+  .footer-status {
+    height: 15vh;
+  }
+
+  .ant-layout-content {
+    height: 85vh;
+  }
+
   .album-history {
-    height: calc(75vh - 32px - 2rem - 72px);
+    height: calc(100% - 18vh - 72px);
   }
 }

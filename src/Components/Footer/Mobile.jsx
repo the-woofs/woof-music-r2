@@ -6,16 +6,32 @@ import { PauseOutlined } from "@ant-design/icons";
 import { Launch, PlayArrow } from "@mui/icons-material";
 
 import store from "../../store";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Mobile() {
   const [track] = store.useState("playingTrack");
   const [isPlaying, setIsPlaying] = store.useState("isPlaying");
+  const [footerRef] = store.useState("footerRef");
 
   const navigate = useNavigate();
+  let location = useLocation();
+
+  useEffect(() => {
+    if (footerRef.current && location.pathname === "/status") {
+      console.log(footerRef.current);
+      footerRef.current.className = "footer-status";
+    } else if (footerRef.current) {
+      console.log(footerRef.current);
+      footerRef.current.className = "ant-layout-footer";
+    }
+  }, [footerRef, location.pathname]);
 
   return (
-    <div className='mobile'>
+    <div
+      className='mobile'
+      style={location.pathname === "/status" ? { display: "none" } : {}}
+    >
       {track && (
         <>
           <Meta
