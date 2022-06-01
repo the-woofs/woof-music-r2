@@ -13,7 +13,7 @@ function Left() {
         <>
           <Meta
             style={{
-              width: "100%",
+              width: "30vw",
               overflow: "hidden",
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
@@ -30,15 +30,7 @@ function Left() {
                 shape='square'
               />
             }
-            title={
-              <div
-                style={{
-                  maxWidth: "80%",
-                }}
-              >
-                {track.name}
-              </div>
-            }
+            title={track.name}
             description={
               <>
                 {track.artists &&
