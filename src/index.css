@@ -79,6 +79,21 @@
   justify-content: center;
 }
 
+.RootContainer {
+  padding: 5%;
+}
+
+.InnerGrid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Card Button {
+  width: 100%;
+}
+
 .center-component-i {
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -141,5 +156,13 @@
 
   .album-name-track-mobile {
     display: block;
+  }
+
+  .RootContainer {
+    padding: auto;
+  }
+  .Card {
+    width: 100vw;
+    height: 100vh;
   }
 }

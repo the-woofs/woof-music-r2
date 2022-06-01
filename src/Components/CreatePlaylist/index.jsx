@@ -1,4 +1,4 @@
-import { Modal } from "antd";
+import { Form, Modal } from "antd";
 import store from "../../store";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
@@ -18,6 +18,8 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const auth = getAuth();
+
+// playlist should be created at /u/user/playlists/playlistId
 
 function CreatePlaylist(props) {
   const { visible } = props;
@@ -48,7 +50,9 @@ function CreatePlaylist(props) {
           visible={visible}
           centered
           title='Create Playlist'
-        ></Modal>
+        >
+          <Form></Form>
+        </Modal>
       )}
     </>
   );
