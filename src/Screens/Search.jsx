@@ -161,11 +161,17 @@ function SearchPage() {
                       />
                     }
                     title={item.name}
-                    description={item.artists
-                      .map((artist) => artist.name)
-                      .join(", ")}
+                    description={
+                      <>
+                        {item.artists.map((artist) => artist.name).join(", ")}
+
+                        <em className='album-name-track-mobile'>
+                          {item.album.name}
+                        </em>
+                      </>
+                    }
                   />
-                  <p>{item.album.name}</p>
+                  <p className='album-name-track'>{item.album.name}</p>
                 </List.Item>
               </Dropdown>
             )}
