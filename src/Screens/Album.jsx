@@ -164,6 +164,7 @@ function Album() {
       {data.songs && (
         <List
           style={{
+            height: "calc(75vh - 32px - 2rem)",
             marginTop: "1rem",
             overflow: "auto",
             padding: "1% 2.5%",

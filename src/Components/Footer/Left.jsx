@@ -12,6 +12,13 @@ function Left() {
       {track && (
         <>
           <Meta
+            style={{
+              width: "100%",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              margin: 0,
+            }}
             avatar={
               <Avatar
                 src={
