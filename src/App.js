@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "antd/dist/antd.dark.min.css";
 
 import Main from "./Screens/Main";
+import Login from "./Screens/Login";
 import Artist from "./Screens/Artist";
 import Playlist from "./Screens/Playlist";
 import Search from "./Screens/Search";
@@ -13,6 +14,7 @@ import Footer from "./Components/Footer";
 import { Layout } from "antd";
 import MenuItems from "./Menu";
 import ReactPlayer from "react-player";
+import CreatePlaylist from "./Components/CreatePlaylist";
 import { useEffect, useRef } from "react";
 import "./index.css";
 
@@ -49,9 +51,11 @@ store.setState("isSideBarCollapsed", false);
 store.setState("progress", 0, persist);
 store.setState("currentTime", 0, persist);
 store.setState("albumHistory", [], persist);
+store.setState("isCreatingPlaylist", false);
 
 function App() {
   const [isCollapsed, setIsCollapsed] = store.useState("isSideBarCollapsed");
+  const [isCreatingPlaylist] = store.useState("isCreatingPlaylist");
   const [isPlaying] = store.useState("isPlaying");
   const [playingTrack] = store.useState("playingTrack");
   const [, setProgress] = store.useState("progress");
@@ -115,6 +119,7 @@ function App() {
                   right: 0,
                 }}
               >
+                <CreatePlaylist visible={isCreatingPlaylist} />
                 <Redirects />
               </Layout.Content>
             </Layout>
@@ -179,6 +184,7 @@ function Redirects() {
         <Route path='/artist/:id' element={<Artist />} />
         <Route path='/album/:id' element={<Album />} />
         <Route path='status' element={<Status />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </>
   );
