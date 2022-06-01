@@ -147,10 +147,29 @@ function Status() {
                 style={{ width: "60vw" }}
               />
               <div className='meta-i'>
-                <Typography.Title level={3}>
+                <Typography.Title
+                  level={3}
+                  style={{
+                    width: "80vw",
+                    overflow: "hidden",
+                    padding: "0px 14px",
+                    textOverflow: "wrap",
+                    whiteSpace: "wrap",
+                    textAlign: "center",
+                  }}
+                >
                   {track.name && track.name}
                 </Typography.Title>
-                <Typography.Paragraph>
+                <Typography.Paragraph
+                  style={{
+                    width: "80vw",
+                    overflow: "hidden",
+                    padding: "0px 14px",
+                    textOverflow: "wrap",
+                    whiteSpace: "wrap",
+                    textAlign: "center",
+                  }}
+                >
                   {track.artists && track.artists.map((a) => a.name)}
                 </Typography.Paragraph>
               </div>

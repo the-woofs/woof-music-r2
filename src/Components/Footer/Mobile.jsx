@@ -36,7 +36,12 @@ function Mobile() {
         <>
           <Meta
             style={{
+              width: "50vw",
+              overflow: "hidden",
               padding: "0px 14px",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              margin: 0,
             }}
             avatar={
               <Avatar

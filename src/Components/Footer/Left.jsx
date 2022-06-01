@@ -23,7 +23,15 @@ function Left() {
                 shape='square'
               />
             }
-            title={track.name}
+            title={
+              <div
+                style={{
+                  maxWidth: "80%",
+                }}
+              >
+                {track.name}
+              </div>
+            }
             description={
               <>
                 {track.artists &&
