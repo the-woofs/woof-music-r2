@@ -1,15 +1,18 @@
-import { Avatar, Button } from "antd";
+import { Avatar, Button, Space } from "antd";
 import Meta from "antd/lib/card/Meta";
 import "./index.css";
 
 import { PauseOutlined } from "@ant-design/icons";
-import { PlayArrow } from "@mui/icons-material";
+import { Launch, PlayArrow } from "@mui/icons-material";
 
 import store from "../../store";
+import { useNavigate } from "react-router-dom";
 
 function Mobile() {
   const [track] = store.useState("playingTrack");
   const [isPlaying, setIsPlaying] = store.useState("isPlaying");
+
+  const navigate = useNavigate();
 
   return (
     <div className='mobile'>
@@ -43,15 +46,37 @@ function Mobile() {
               </>
             }
           />
-          <div>
-            <Button
-              type='primary'
-              shape='circle'
-              onClick={() => {
-                setIsPlaying(!isPlaying);
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Space
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
-              icon={<>{isPlaying ? <PauseOutlined /> : <PlayArrow />}</>}
-            ></Button>
+            >
+              <Button
+                type='text'
+                shape='circle'
+                onClick={() => {
+                  navigate("/status");
+                }}
+                icon={<Launch />}
+              ></Button>
+              <Button
+                type='primary'
+                shape='circle'
+                onClick={() => {
+                  setIsPlaying(!isPlaying);
+                }}
+                icon={<>{isPlaying ? <PauseOutlined /> : <PlayArrow />}</>}
+              ></Button>
+            </Space>
           </div>
         </>
       )}
