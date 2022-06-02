@@ -1,7 +1,19 @@
-import { Avatar, Typography, List, Dropdown, Menu, Button } from "antd";
+import {
+  Avatar,
+  Typography,
+  List,
+  Dropdown,
+  Menu,
+  Button,
+  Divider,
+} from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { PlayCircleFilled, PlusOutlined } from "@ant-design/icons";
+import {
+  CaretRightOutlined,
+  PlayCircleFilled,
+  PlusOutlined,
+} from "@ant-design/icons";
 import { PlayArrowSharp } from "@mui/icons-material";
 import "../index.css";
 import store from "../store";
@@ -156,84 +168,103 @@ function Album() {
                   {data && data.year && ` - ${data.year}`}
                 </Typography.Text>
               )}
+              {data && data.songs && (
+                <div style={{ margin: "0 14px" }}>
+                  <Button
+                    onClick={() => {
+                      playFromAlbum(data.songs, data.songs[0], 0);
+                    }}
+                    type='primary'
+                    shape='circle'
+                    icon={<CaretRightOutlined />}
+                  ></Button>
+                </div>
+              )}
             </div>
           </div>
         </>
       </div>
 
       {data.songs && (
-        <List
-          style={{
-            height: "fit-content",
-            marginTop: "1rem",
-            overflow: "none",
-            padding: "1% 2.5%",
-          }}
-          dataSource={data.songs}
-          itemLayout='horizontal'
-          renderItem={(item, index) => (
-            <Dropdown
-              trigger={["contextMenu"]}
-              overlay={
-                <Menu>
-                  <Menu.Item
-                    icon={
-                      <PlayCircleFilled
-                        onClick={() => {
-                          playFromAlbum(data.songs, item, index);
+        <div>
+          <Divider
+            style={{
+              margin: "1% 2.5%",
+            }}
+          />
+          <List
+            style={{
+              height: "fit-content",
+              marginTop: "1rem",
+              overflow: "none",
+              padding: "1% 2.5%",
+            }}
+            dataSource={data.songs}
+            itemLayout='horizontal'
+            renderItem={(item, index) => (
+              <Dropdown
+                trigger={["contextMenu"]}
+                overlay={
+                  <Menu>
+                    <Menu.Item
+                      icon={
+                        <PlayCircleFilled
+                          onClick={() => {
+                            playFromAlbum(data.songs, item, index);
+                          }}
+                        />
+                      }
+                    >
+                      Play
+                    </Menu.Item>
+                    <Menu.Item
+                      onClick={() => {
+                        queueFromAlbum(data.songs, item);
+                      }}
+                      icon={<PlusOutlined />}
+                    >
+                      Add To Queue
+                    </Menu.Item>
+                  </Menu>
+                }
+              >
+                <List.Item
+                  className='search-item'
+                  onClick={() => {
+                    playFromAlbum(data.songs, item, index);
+                  }}
+                  actions={[
+                    <Button
+                      shape='circle'
+                      icon={<PlayArrowSharp />}
+                      type='text'
+                      onClick={() => {
+                        playFromAlbum(data.songs, item, index);
+                      }}
+                    />,
+                  ]}
+                >
+                  <List.Item.Meta
+                    avatar={
+                      <Avatar
+                        style={{
+                          height: 60,
+                          width: 60,
                         }}
+                        shape='square'
+                        src={item.thumbnails[0].url}
                       />
                     }
-                  >
-                    Play
-                  </Menu.Item>
-                  <Menu.Item
-                    onClick={() => {
-                      queueFromAlbum(data.songs, item);
-                    }}
-                    icon={<PlusOutlined />}
-                  >
-                    Add To Queue
-                  </Menu.Item>
-                </Menu>
-              }
-            >
-              <List.Item
-                className='search-item'
-                onClick={() => {
-                  playFromAlbum(data.songs, item, index);
-                }}
-                actions={[
-                  <Button
-                    shape='circle'
-                    icon={<PlayArrowSharp />}
-                    type='text'
-                    onClick={() => {
-                      playFromAlbum(data.songs, item, index);
-                    }}
-                  />,
-                ]}
-              >
-                <List.Item.Meta
-                  avatar={
-                    <Avatar
-                      style={{
-                        height: 60,
-                        width: 60,
-                      }}
-                      shape='square'
-                      src={item.thumbnails[0].url}
-                    />
-                  }
-                  title={item.name}
-                  description={item.artists
-                    .map((artist) => artist.name)
-                    .join(", ")}
-                />
-              </List.Item>
-            </Dropdown>
-          )}
-        />
+                    title={item.name}
+                    description={item.artists
+                      .map((artist) => artist.name)
+                      .join(", ")}
+                  />
+                </List.Item>
+              </Dropdown>
+            )}
+          />
+        </div>
       )}
     </div>
   );
