@@ -113,6 +113,10 @@
   height: calc(100% - 12vh - 72px);
 }
 
+.album-list {
+  height: calc(92vh - 2rem - 72px);
+}
+
 @media screen and (max-width: 792px) {
   .content {
     width: 100vw;
@@ -152,6 +156,10 @@
 
   .album-name-track {
     display: none;
+  }
+
+  .album-list {
+    height: calc(85vh - 2rem - 72px);
   }
 
   .album-name-track-mobile {

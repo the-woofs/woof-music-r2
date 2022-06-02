@@ -1,6 +1,7 @@
-import { Card, PageHeader, Typography } from "antd";
+import { Card, Divider, PageHeader, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { useNavigate } from "react-router-dom";
+import { Playlists } from "./Playlists";
 import store from "../store";
 import "../index.css";
 
@@ -22,6 +23,9 @@ function Main() {
         }}
         className='album-history'
       >
+        <Playlists />
+        <Divider />
+
         {data && (
           <>
             <Typography.Title level={3}>Albums You've Visited</Typography.Title>

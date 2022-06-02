@@ -122,7 +122,7 @@ function Album() {
   };
 
   return (
-    <div style={{ overflow: "auto", height: "100%" }}>
+    <div style={{ overflow: "auto" }} className='album-list'>
       <div className='album-head'>
         {data && data.thumbnails && (
           <img
@@ -164,9 +164,9 @@ function Album() {
       {data.songs && (
         <List
           style={{
-            height: "calc(75vh - 32px - 2rem)",
+            height: "fit-content",
             marginTop: "1rem",
-            overflow: "auto",
+            overflow: "none",
             padding: "1% 2.5%",
           }}
           dataSource={data.songs}

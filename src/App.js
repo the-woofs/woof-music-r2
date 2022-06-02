@@ -5,7 +5,7 @@ import "antd/dist/antd.dark.min.css";
 import Main from "./Screens/Main";
 import Login from "./Screens/Login";
 import Artist from "./Screens/Artist";
-import Playlist from "./Screens/Playlist";
+import { Main as Playlist } from "./Screens/Playlists";
 import Search from "./Screens/Search";
 import Status from "./Screens/Status";
 import Album from "./Screens/Album";
