@@ -58,7 +58,11 @@ function PlaylistsVer() {
                   title={playlist.name}
                   avatar={
                     playlist.cover ? (
-                      <Avatar src={playlist.cover} />
+                      <Avatar
+                        src={playlist.cover}
+                        size='large'
+                        shape='square'
+                      />
                     ) : (
                       <Album fontSize='large' />
                     )
