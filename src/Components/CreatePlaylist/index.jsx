@@ -35,6 +35,7 @@ function CreatePlaylist(props) {
   const [user, loading] = useAuthState(auth);
   const [playlistName, setPlaylistName] = useState("");
   const [playlistDescription, setPlaylistDescription] = useState("");
+  const [playlistCover, setPlaylistCover] = useState("");
 
   useEffect(() => {
     if (visible && !user && !loading) {
@@ -68,6 +69,7 @@ function CreatePlaylist(props) {
               {
                 name: playlistName,
                 description: playlistDescription,
+                cover: playlistCover,
                 id: docRef.id,
                 owner: auth.currentUser.uid,
               }
@@ -105,6 +107,15 @@ function CreatePlaylist(props) {
                 }}
                 value={playlistDescription}
                 placeholder="Set the playlist's description"
+              />
+            </Form.Item>
+            <Form.Item label='Cover'>
+              <Input
+                onChange={(e) => {
+                  setPlaylistCover(e.target.value);
+                }}
+                value={playlistCover}
+                placeholder="Set the playlist's cover art url"
               />
             </Form.Item>
           </Form>

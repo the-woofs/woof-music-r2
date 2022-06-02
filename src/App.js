@@ -5,7 +5,8 @@ import "antd/dist/antd.dark.min.css";
 import Main from "./Screens/Main";
 import Login from "./Screens/Login";
 import Artist from "./Screens/Artist";
-import { Main as Playlist } from "./Screens/Playlists";
+import { Main as Playlists } from "./Screens/Playlists";
+import Playlist from "./Screens/Playlist";
 import Search from "./Screens/Search";
 import Status from "./Screens/Status";
 import Album from "./Screens/Album";
@@ -176,7 +177,7 @@ function Redirects() {
     <>
       <Routes>
         <Route path='/' element={<Main />} />
-        <Route path='/playlist/' element={<Playlist listEm />} />
+        <Route path='/playlist/' element={<Playlists listEm />} />
         <Route path='/playlist/:id' element={<Playlist />} />
         <Route path='/search' element={<Search noIn />} />
         <Route path='/search/:query' element={<Search />} />

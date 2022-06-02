@@ -1,4 +1,4 @@
-import { Card, PageHeader, Typography } from "antd";
+import { Avatar, Card, PageHeader, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
@@ -6,6 +6,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { collection, doc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+import { Album } from "@mui/icons-material";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCSGprUw_eQ-0sEVCLctStEmfunuP5upZU",
@@ -21,7 +22,7 @@ initializeApp(firebaseConfig);
 const db = getFirestore();
 const auth = getAuth();
 
-function Playlists() {
+function PlaylistsVer() {
   const [data] = useCollectionData(
     collection(doc(collection(db, "u"), auth.currentUser.uid), "playlists")
   );
@@ -55,6 +56,13 @@ function Playlists() {
               >
                 <Meta
                   title={playlist.name}
+                  avatar={
+                    playlist.cover ? (
+                      <Avatar src={playlist.cover} />
+                    ) : (
+                      <Album fontSize='large' />
+                    )
+                  }
                   description={
                     playlist &&
                     playlist.description && <>{playlist.description} </>
@@ -67,6 +75,18 @@ function Playlists() {
       )}
     </>
   );
+}
+
+function Playlists() {
+  if (!auth.currentUser) {
+    return (
+      <div>
+        <h1>You must be logged in to see your playlists.</h1>
+        <a href='/login'>Login or Sign Up here.</a>
+      </div>
+    );
+  }
+  return <PlaylistsVer />;
 }
 
 function Main() {
