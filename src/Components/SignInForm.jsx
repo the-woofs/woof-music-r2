@@ -2,10 +2,12 @@ import { Form, Input, Button, notification } from "antd";
 import { MailOutlined, KeyOutlined } from "@ant-design/icons";
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth();
 
 function SignInForm() {
+  const navigate = useNavigate();
   const openNotificationError = (message) => {
     notification["error"]({
       message: "Error",
@@ -19,6 +21,7 @@ function SignInForm() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // const user = userCredential.user;
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
