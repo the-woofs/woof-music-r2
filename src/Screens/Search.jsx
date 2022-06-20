@@ -32,7 +32,7 @@ function SearchPage() {
 
   const searchYtMusic = async function (q) {
     const res = await fetch(
-      `https://cors-woof.herokuapp.com/https://woof-ytm.herokuapp.com/api/${searchMode}/search?q=${q}`
+      `http://152.67.77.86:8381//api/${searchMode}/search?q=${q}`
     );
     const data = await res.json();
     setData(data);
@@ -41,9 +41,9 @@ function SearchPage() {
 
   const playYoutube = async function (track) {
     const res = await fetch(
-      `https://cors-woof.herokuapp.com/https://woof-yt-scrape.herokuapp.com/api/search?q=${
-        track.name
-      }%20${track.artists.map((artist) => artist.name).join(", ")}
+      `http://152.67.77.86:8380//api/search?q=${track.name}%20${track.artists
+        .map((artist) => artist.name)
+        .join(", ")}
       )}`
     );
     const data = await res.json();
@@ -58,9 +58,9 @@ function SearchPage() {
 
   const queueYoutube = async function (track) {
     const res = await fetch(
-      `https://cors-woof.herokuapp.com/https://woof-yt-scrape.herokuapp.com/api/search?q=${
-        track.name
-      }%20${track.artists.map((artist) => artist.name).join(", ")}
+      `http://152.67.77.86:8380/api/search?q=${track.name}%20${track.artists
+        .map((artist) => artist.name)
+        .join(", ")}
       )}`
     );
     const data = await res.json();

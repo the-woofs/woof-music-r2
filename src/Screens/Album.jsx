@@ -40,9 +40,7 @@ function Album() {
   const [history, setHistory] = store.useState("albumHistory");
 
   const getData = async () => {
-    const res = await fetch(
-      `https://cors-woof.herokuapp.com/https://woof-ytm.herokuapp.com/api/get/album/${id}`
-    );
+    const res = await fetch(`http://152.67.77.86:8381//api/get/album/${id}`);
     const data = await res.json();
     setData(data);
     if (!history) {
@@ -67,9 +65,7 @@ function Album() {
   }, []);
 
   const getChannelInfo = async (id) => {
-    const res = await fetch(
-      `https://cors-woof.herokuapp.com/https://woof-ytm.herokuapp.com/api/get/album/${id}`
-    );
+    const res = await fetch(`http://152.67.77.86:8381//api/get/album/${id}`);
     const data = await res.json();
     const existingAvatars = avatars;
     existingAvatars.push(data.thumbnails[data.thumbnails.length - 1].url);
