@@ -41,7 +41,7 @@ function Album() {
 
   const getData = async () => {
     const res = await fetch(
-      `https://yt-dlapi.acutewoof.repl.co/api/get/album/${id}`,
+      `https://cors-anywhere.7ih.repl.co/https://yt-dlapi.acutewoof.repl.co/api/get/album/${id}`,
       {
         method: "GET",
         headers: {
@@ -74,7 +74,7 @@ function Album() {
 
   const getChannelInfo = async (id) => {
     const res = await fetch(
-      `https://yt-dlapi.acutewoof.repl.co/api/get/album/${id}`,
+      `https://cors-anywhere.7ih.repl.co/https://yt-dlapi.acutewoof.repl.co/api/get/album/${id}`,
       {
         method: "GET",
         headers: {
