@@ -17,13 +17,14 @@
   background-color: #171717;
   display: flex;
   align-items: flex-end;
-  padding: 2.5%;
+  padding: 2rem;
 }
 
 .album-cover {
   grid-area: img;
   object-fit: cover;
-  height: 100%;
+  height: calc(50vh - 4rem);
+  width: calc(50vh - 4rem);
   margin-right: 2rem;
 }
 
