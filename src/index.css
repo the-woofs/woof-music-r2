@@ -115,6 +115,7 @@
 
 .album-list {
   height: calc(92vh - 2rem - 72px);
+  overflow-x: hidden !important;
 }
 
 @media screen and (max-width: 792px) {

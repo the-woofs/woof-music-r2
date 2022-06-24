@@ -32,7 +32,7 @@ function SearchPage() {
 
   const searchYtMusic = async function (q) {
     const res = await fetch(
-      `https://cors-anywhere.7ih.repl.co/https://yt-dlapi.acutewoof.repl.co/api/${searchMode}/search?q=${q}`,
+      `https://yt-dlapi.acutewoof.repl.co/api/${searchMode}/search?q=${q}`,
       {
         method: "GET",
         headers: {
