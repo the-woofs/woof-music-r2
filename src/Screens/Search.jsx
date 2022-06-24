@@ -32,7 +32,14 @@ function SearchPage() {
 
   const searchYtMusic = async function (q) {
     const res = await fetch(
-      `http://152.67.77.86:8381//api/${searchMode}/search?q=${q}`
+      `https://yt-dlapi.acutewoof.repl.co//api/${searchMode}/search?q=${q}`,
+      {
+        method: "GET",
+        headers: {
+          Mode: "no-cors",
+          "X-Goog-Visitor-Id": "",
+        },
+      }
     );
     const data = await res.json();
     setData(data);
@@ -44,7 +51,13 @@ function SearchPage() {
       `http://152.67.77.86:8380//api/search?q=${track.name}%20${track.artists
         .map((artist) => artist.name)
         .join(", ")}
-      )}`
+      )}`,
+      {
+        method: "GET",
+        headers: {
+          Mode: "no-cors",
+        },
+      }
     );
     const data = await res.json();
     data.results[0].video.coverArt = track.thumbnails[1].url;
@@ -61,7 +74,13 @@ function SearchPage() {
       `http://152.67.77.86:8380/api/search?q=${track.name}%20${track.artists
         .map((artist) => artist.name)
         .join(", ")}
-      )}`
+      )}`,
+      {
+        method: "GET",
+        headers: {
+          Mode: "no-cors",
+        },
+      }
     );
     const data = await res.json();
     data.results[0].video.coverArt = track.thumbnails[1].url;
