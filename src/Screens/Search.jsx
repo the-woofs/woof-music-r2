@@ -32,7 +32,7 @@ function SearchPage() {
 
   const searchYtMusic = async function (q) {
     const res = await fetch(
-      `https://yt-dlapi.acutewoof.repl.co//api/${searchMode}/search?q=${q}`,
+      `https://yt-dlapi.acutewoof.repl.co/api/${searchMode}/search?q=${q}`,
       {
         method: "GET",
         headers: {
@@ -48,7 +48,7 @@ function SearchPage() {
 
   const playYoutube = async function (track) {
     const res = await fetch(
-      `http://152.67.77.86:8380//api/search?q=${track.name}%20${track.artists
+      `http://152.67.77.86:8380/api/search?q=${track.name}%20${track.artists
         .map((artist) => artist.name)
         .join(", ")}
       )}`,
