@@ -1,6 +1,7 @@
 import store from "../store";
-import { List, Dropdown, Menu, Button, Avatar, PlayCircleFilled } from "antd";
+import { List, Dropdown, Menu, Button, Avatar } from "antd";
 import { PlayArrowSharp } from "@mui/icons-material";
+import { MinusOutlined, PlayCircleFilled } from "@ant-design/icons";
 
 function copy(mainObj) {
   let objCopy = {}; // objCopy will store a copy of the mainObj
@@ -14,9 +15,9 @@ function copy(mainObj) {
 
 function Queue() {
   const [queue, setQueue] = store.useState("queue");
-  const [trackId, setTrackId] = store.useState("trackId");
-  const [playingTrack, setPlayingTrack] = store.useState("playingTrack");
-  const [isPlaying, setIsPlaying] = store.useState("isPlaying");
+  const [, setTrackId] = store.useState("trackId");
+  const [, setPlayingTrack] = store.useState("playingTrack");
+  const [, setIsPlaying] = store.useState("isPlaying");
 
   const playFromQueue = (tracks, _track, index) => {
     setTrackId(0);
@@ -42,6 +43,16 @@ function Queue() {
     console.log(queue);
   };
 
+  const removeFromQueue = (tracks, _track, index) => {
+    let newTracks = [];
+    for (let i = 0; i < tracks.length; i++) {
+      if (i !== index) {
+        newTracks.push(tracks[i]);
+      }
+    }
+    setQueue(newTracks);
+  };
+
   return (
     <div
       style={{
@@ -49,8 +60,8 @@ function Queue() {
       }}
     >
       <List
+        className="album-list"
         style={{
-          height: "calc(75vh - 32px - 2rem)",
           marginTop: "1rem",
           overflow: "auto",
           padding: "0 16px",
@@ -59,37 +70,66 @@ function Queue() {
         locale={{ emptyText: "Nothing in Queue" }}
         itemLayout="horizontal"
         renderItem={(item, index) => (
-          <List.Item
-            className="search-item"
-            onClick={() => {
-              playFromQueue(queue, item, index);
-            }}
-            actions={[
-              <Button
-                shape="circle"
-                icon={<PlayArrowSharp />}
-                type="text"
-                onClick={() => {
-                  playFromQueue(queue, item, index);
-                }}
-              />,
-            ]}
-          >
-            <List.Item.Meta
-              avatar={
-                <Avatar
-                  style={{
-                    height: 60,
-                    width: 60,
+          <Dropdown
+            overlay={
+              <Menu>
+                <Menu.Item
+                  icon={
+                    <PlayCircleFilled
+                      onClick={() => {
+                        playFromQueue(queue, item, index);
+                      }}
+                    />
+                  }
+                >
+                  Play
+                </Menu.Item>
+                <Menu.Item
+                  onClick={() => {
+                    removeFromQueue(queue, item, index);
                   }}
-                  shape="square"
-                  src={item.thumbnails[0].url}
-                />
-              }
-              title={item.name}
-              description={item.artists.map((artist) => artist.name).join(", ")}
-            />
-          </List.Item>
+                  icon={<MinusOutlined />}
+                >
+                  Remove From Queue
+                </Menu.Item>
+              </Menu>
+            }
+            trigger={["contextMenu"]}
+          >
+            <List.Item
+              className="search-item"
+              onClick={() => {
+                playFromQueue(queue, item, index);
+              }}
+              actions={[
+                <Button
+                  shape="circle"
+                  icon={<PlayArrowSharp />}
+                  type="text"
+                  onClick={() => {
+                    playFromQueue(queue, item, index);
+                  }}
+                />,
+              ]}
+            >
+              <List.Item.Meta
+                avatar={
+                  <Avatar
+                    style={{
+                      height: 60,
+                      width: 60,
+                    }}
+                    shape="square"
+                    src={item.thumbnails[0].url}
+                  />
+                }
+                title={item.name}
+                description={item.artists
+                  .map((artist) => artist.name)
+                  .join(", ")}
+              />
+            </List.Item>
+          </Dropdown>
         )}
       />
     </div>
