@@ -9,9 +9,11 @@ import {
   Input,
   Select,
   Card,
+  Spin,
 } from "antd";
 import {
   CaretRightOutlined,
+  LoadingOutlined,
   PlayCircleFilled,
   PlusOutlined,
 } from "@ant-design/icons";
@@ -48,7 +50,21 @@ function Gaurd() {
   if (auth.currentUser) {
     return <Playlist />;
   } else {
-    return <>Loading</>;
+    return (
+      <div
+        style={{
+          height: "100%",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Spin
+          indicator={<LoadingOutlined style={{ fontSize: "10vh" }} spin />}
+        />
+      </div>
+    );
   }
 }
 
@@ -177,6 +193,7 @@ function Playlist() {
               }}
               dataSource={tracks}
               itemLayout='horizontal'
+              locale={{ emptyText: "No Tracks" }}
               renderItem={(item, index) => (
                 <Dropdown
                   trigger={["contextMenu"]}
@@ -388,6 +405,7 @@ function SearchPage(props) {
             }}
             itemLayout='horizontal'
             dataSource={data}
+            locale={{ emptyText: "No Results" }}
             renderItem={(item) => (
               <Dropdown
                 trigger={["contextMenu"]}

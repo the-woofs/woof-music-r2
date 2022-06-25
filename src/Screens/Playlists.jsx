@@ -1,4 +1,4 @@
-import { Avatar, Card, PageHeader, Typography } from "antd";
+import { Avatar, Card, PageHeader, Skeleton, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
@@ -23,12 +23,47 @@ const db = getFirestore();
 const auth = getAuth();
 
 function PlaylistsVer() {
-  const [data] = useCollectionData(
+  const [data, loading] = useCollectionData(
     collection(doc(collection(db, "u"), auth.currentUser.uid), "playlists")
   );
   const navigate = useNavigate();
   return (
     <>
+      {loading && (
+        <>
+          <Typography.Title level={3}>Your Playlists</Typography.Title>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, 226px)",
+              gridGap: "1rem",
+              placeItems: "center",
+            }}
+          >
+            <Skeleton.Input
+              active
+              style={{
+                height: "96px",
+                width: "226px",
+              }}
+            />
+            <Skeleton.Input
+              active
+              style={{
+                height: "96px",
+                width: "226px",
+              }}
+            />
+            <Skeleton.Button
+              active
+              style={{
+                height: "96px",
+                width: "226px",
+              }}
+            />
+          </div>
+        </>
+      )}
       {data && (
         <>
           <Typography.Title level={3}>Your Playlists</Typography.Title>

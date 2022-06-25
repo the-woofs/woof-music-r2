@@ -128,6 +128,7 @@ function SearchPage() {
             }}
             itemLayout='horizontal'
             dataSource={data}
+            locale={{ emptyText: "No Results" }}
             renderItem={(item) => (
               <Dropdown
                 trigger={["contextMenu"]}

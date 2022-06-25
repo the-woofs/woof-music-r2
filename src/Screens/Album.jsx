@@ -170,17 +170,17 @@ function Album() {
                 </Avatar.Group>
               )}
 
-              {data && data.artists && data.year && (
-                <Typography.Text
-                  style={{
-                    margin: 0,
-                  }}
-                  className='artists-name-album'
-                >
-                  {data.artists.map((artist) => artist.name).join(", ")}
-                  {data && data.year && ` - ${data.year}`}
-                </Typography.Text>
-              )}
+              <Typography.Text
+                style={{
+                  margin: 0,
+                }}
+                className='artists-name-album'
+              >
+                {data.artists &&
+                  data.artists.map((artist) => artist.name).join(", ")}
+                {data && data.year && ` - ${data.year}`}
+              </Typography.Text>
+
               {data && data.songs && (
                 <div style={{ margin: "0 14px" }}>
                   <Button
