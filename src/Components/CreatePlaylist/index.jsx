@@ -117,6 +117,13 @@ function CreatePlaylist(props) {
                 value={playlistCover}
                 placeholder="Set the playlist's cover art url"
               />
+              <a
+                target='_blank'
+                rel='noreferrer'
+                href='https://acutewoof.is-a.dev/random-unsplash'
+              >
+                Get random image from Unsplash
+              </a>
             </Form.Item>
           </Form>
         </Modal>
