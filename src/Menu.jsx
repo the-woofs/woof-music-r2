@@ -1,4 +1,5 @@
 import {
+  BarsOutlined,
   DatabaseFilled,
   HomeFilled,
   PlusOutlined,
@@ -30,7 +31,7 @@ function MenuItems() {
           }}
         />
         <Menu.Item
-          key='/'
+          key="/"
           icon={<HomeFilled />}
           onClick={() => {
             navigate("/");
@@ -39,7 +40,7 @@ function MenuItems() {
           Home
         </Menu.Item>
         <Menu.Item
-          key='/search'
+          key="/search"
           icon={<SearchOutlined />}
           onClick={() => {
             navigate("/search");
@@ -48,13 +49,22 @@ function MenuItems() {
           Search
         </Menu.Item>
         <Menu.Item
-          key='/playlist'
+          key="/playlist"
           icon={<DatabaseFilled />}
           onClick={() => {
             navigate("/playlist");
           }}
         >
           Playlists
+        </Menu.Item>
+        <Menu.Item
+          key="/queue"
+          icon={<BarsOutlined />}
+          onClick={() => {
+            navigate("/queue");
+          }}
+        >
+          Queue
         </Menu.Item>
         <Menu.Item
           onClick={() => {

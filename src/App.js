@@ -8,6 +8,7 @@ import Artist from "./Screens/Artist";
 import { Main as Playlists } from "./Screens/Playlists";
 import Playlist from "./Screens/Playlist";
 import Search from "./Screens/Search";
+import Queue from "./Screens/Queue";
 import Status from "./Screens/Status";
 import Album from "./Screens/Album";
 import Track from "./Screens/Track";
@@ -101,8 +102,8 @@ function App() {
               style={{
                 height: "calc(100vh - 18vh)",
               }}
-              breakpoint='lg'
-              collapsedWidth='0'
+              breakpoint="lg"
+              collapsedWidth="0"
               defaultCollapsed={isCollapsed}
               onCollapse={(collapsed, type) => {
                 setIsCollapsed(collapsed);
@@ -114,7 +115,7 @@ function App() {
             </Layout.Sider>
             <Layout>
               <Layout.Content
-                className='content'
+                className="content"
                 style={{
                   position: "fixed",
                   right: 0,
@@ -176,16 +177,17 @@ function Redirects() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/playlist/' element={<Playlists listEm />} />
-        <Route path='/playlist/:id' element={<Playlist />} />
-        <Route path='/search' element={<Search noIn />} />
-        <Route path='/search/:query' element={<Search />} />
-        <Route path='/track/:id' element={<Track />} />
-        <Route path='/artist/:id' element={<Artist />} />
-        <Route path='/album/:id' element={<Album />} />
-        <Route path='status' element={<Status />} />
-        <Route path='/login' element={<Login />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/playlist/" element={<Playlists listEm />} />
+        <Route path="/playlist/:id" element={<Playlist />} />
+        <Route path="/search" element={<Search noIn />} />
+        <Route path="/search/:query" element={<Search />} />
+        <Route path="/track/:id" element={<Track />} />
+        <Route path="/artist/:id" element={<Artist />} />
+        <Route path="/album/:id" element={<Album />} />
+        <Route path="/status" element={<Status />} />
+        <Route path="/queue" element={<Queue />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
