@@ -59,79 +59,81 @@ function Queue() {
         overflow: "auto",
       }}
     >
-      <List
-        className="album-list"
-        style={{
-          marginTop: "1rem",
-          overflow: "auto",
-          padding: "0 16px",
-        }}
-        dataSource={queue}
-        locale={{ emptyText: "Nothing in Queue" }}
-        itemLayout="horizontal"
-        renderItem={(item, index) => (
-          <Dropdown
-            overlay={
-              <Menu>
-                <Menu.Item
-                  icon={
-                    <PlayCircleFilled
-                      onClick={() => {
-                        playFromQueue(queue, item, index);
+      {queue && queue.length > 0 && (
+        <List
+          className="album-list"
+          style={{
+            marginTop: "1rem",
+            overflow: "auto",
+            padding: "0 16px",
+          }}
+          dataSource={queue}
+          locale={{ emptyText: "Nothing in Queue" }}
+          itemLayout="horizontal"
+          renderItem={(item, index) => (
+            <Dropdown
+              overlay={
+                <Menu>
+                  <Menu.Item
+                    icon={
+                      <PlayCircleFilled
+                        onClick={() => {
+                          playFromQueue(queue, item, index);
+                        }}
+                      />
+                    }
+                  >
+                    Play
+                  </Menu.Item>
+                  <Menu.Item
+                    onClick={() => {
+                      removeFromQueue(queue, item, index);
+                    }}
+                    icon={<MinusOutlined />}
+                  >
+                    Remove From Queue
+                  </Menu.Item>
+                </Menu>
+              }
+              trigger={["contextMenu"]}
+            >
+              <List.Item
+                className="search-item"
+                onClick={() => {
+                  playFromQueue(queue, item, index);
+                }}
+                actions={[
+                  <Button
+                    shape="circle"
+                    icon={<PlayArrowSharp />}
+                    type="text"
+                    onClick={() => {
+                      playFromQueue(queue, item, index);
+                    }}
+                  />,
+                ]}
+              >
+                <List.Item.Meta
+                  avatar={
+                    <Avatar
+                      style={{
+                        height: 60,
+                        width: 60,
                       }}
+                      shape="square"
+                      src={item.thumbnails[0].url}
                     />
                   }
-                >
-                  Play
-                </Menu.Item>
-                <Menu.Item
-                  onClick={() => {
-                    removeFromQueue(queue, item, index);
-                  }}
-                  icon={<MinusOutlined />}
-                >
-                  Remove From Queue
-                </Menu.Item>
-              </Menu>
-            }
-            trigger={["contextMenu"]}
-          >
-            <List.Item
-              className="search-item"
-              onClick={() => {
-                playFromQueue(queue, item, index);
-              }}
-              actions={[
-                <Button
-                  shape="circle"
-                  icon={<PlayArrowSharp />}
-                  type="text"
-                  onClick={() => {
-                    playFromQueue(queue, item, index);
-                  }}
-                />,
-              ]}
-            >
-              <List.Item.Meta
-                avatar={
-                  <Avatar
-                    style={{
-                      height: 60,
-                      width: 60,
-                    }}
-                    shape="square"
-                    src={item.thumbnails[0].url}
-                  />
-                }
-                title={item.name}
-                description={item.artists
-                  .map((artist) => artist.name)
-                  .join(", ")}
-              />
-            </List.Item>
-          </Dropdown>
-        )}
-      />
+                  title={item.name}
+                  description={item.artists
+                    .map((artist) => artist.name)
+                    .join(", ")}
+                />
+              </List.Item>
+            </Dropdown>
+          )}
+        />
+      )}
     </div>
   );
 }
