@@ -2,7 +2,7 @@ import { Avatar, Button, Space } from "antd";
 import Meta from "antd/lib/card/Meta";
 import "./index.css";
 
-import { PauseOutlined } from "@ant-design/icons";
+import { BarsOutlined, PauseOutlined } from "@ant-design/icons";
 import { Launch, PlayArrow } from "@mui/icons-material";
 
 import store from "../../store";
@@ -29,7 +29,7 @@ function Mobile() {
 
   return (
     <div
-      className='mobile'
+      className="mobile"
       style={location.pathname === "/status" ? { display: "none" } : {}}
     >
       {track && (
@@ -50,8 +50,8 @@ function Mobile() {
                   maxHeight: "100%",
                   maxWidth: "100%",
                 }}
-                shape='square'
-                size='large'
+                shape="square"
+                size="large"
                 src={
                   track.coverArt
                     ? track.coverArt
@@ -82,16 +82,24 @@ function Mobile() {
               }}
             >
               <Button
-                type='text'
-                shape='circle'
+                type="text"
+                shape="circle"
+                onClick={() => {
+                  navigate("/queue");
+                }}
+                icon={<BarsOutlined />}
+              ></Button>
+              <Button
+                type="text"
+                shape="circle"
                 onClick={() => {
                   navigate("/status");
                 }}
                 icon={<Launch />}
               ></Button>
               <Button
-                type='primary'
-                shape='circle'
+                type="primary"
+                shape="circle"
                 onClick={() => {
                   setIsPlaying(!isPlaying);
                 }}
