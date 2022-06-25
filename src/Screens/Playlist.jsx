@@ -98,7 +98,7 @@ function Playlist() {
     for (let x of tracks) {
       let newTrack = copy(x);
       newTrack.url = "https://youtube.com/watch?v=" + x.videoId;
-      newTrack.coverArt = track.thumbnails[track.thumbnails.length - 1].url;
+      newTrack.coverArt = x.thumbnails[x.thumbnails.length - 1].url;
       newTracks.push(newTrack);
     }
 
@@ -133,33 +133,33 @@ function Playlist() {
 
   return (
     <>
-      <div style={{ overflow: "auto" }} className='album-list'>
-        <div className='album-head'>
+      <div style={{ overflow: "auto" }} className="album-list">
+        <div className="album-head">
           {data && data.cover && (
-            <img className='album-cover' alt='cover' src={data.cover} />
+            <img className="album-cover" alt="cover" src={data.cover} />
           )}
           {data && !data.cover && (
             <img
-              className='album-cover'
-              alt='cover'
-              src='https://source.unsplash.com/random/500x500/?music'
+              className="album-cover"
+              alt="cover"
+              src="https://source.unsplash.com/random/500x500/?music"
             />
           )}
           <>
-            <div className='album-info'>
-              <Typography.Title className='title' level={1}>
+            <div className="album-info">
+              <Typography.Title className="title" level={1}>
                 {data && data.name && data.name}
               </Typography.Title>
 
-              <div className='album-sub'>
+              <div className="album-sub">
                 {tracks && (
                   <div style={{ marginRight: "14px" }}>
                     <Button
                       onClick={() => {
                         playFromAlbum(tracks, tracks[0], 0);
                       }}
-                      type='primary'
-                      shape='circle'
+                      type="primary"
+                      shape="circle"
                       icon={<CaretRightOutlined />}
                     ></Button>
                   </div>
@@ -192,7 +192,7 @@ function Playlist() {
                 padding: "1% 2.5%",
               }}
               dataSource={tracks}
-              itemLayout='horizontal'
+              itemLayout="horizontal"
               locale={{ emptyText: "No Tracks" }}
               renderItem={(item, index) => (
                 <Dropdown
@@ -222,15 +222,15 @@ function Playlist() {
                   }
                 >
                   <List.Item
-                    className='search-item'
+                    className="search-item"
                     onClick={() => {
                       playFromAlbum(tracks, item, index);
                     }}
                     actions={[
                       <Button
-                        shape='circle'
+                        shape="circle"
                         icon={<PlayArrowSharp />}
-                        type='text'
+                        type="text"
                         onClick={() => {
                           playFromAlbum(tracks, item, index);
                         }}
@@ -244,7 +244,7 @@ function Playlist() {
                             height: 60,
                             width: 60,
                           }}
-                          shape='square'
+                          shape="square"
                           src={item.thumbnails[0].url}
                         />
                       }
@@ -266,7 +266,7 @@ function Playlist() {
               }}
             >
               <Button
-                type='default'
+                type="default"
                 onClick={() => {
                   setIsSearching(!isSearching);
                 }}
@@ -369,7 +369,7 @@ function SearchPage(props) {
   };
 
   return (
-    <div className='search-page'>
+    <div className="search-page">
       <div
         style={{
           margin: "1.5rem 2rem",
@@ -383,8 +383,8 @@ function SearchPage(props) {
             }}
             style={{ width: "90px" }}
           >
-            <Option value='song'>Songs</Option>
-            <Option value='album'>Albums</Option>
+            <Option value="song">Songs</Option>
+            <Option value="album">Albums</Option>
           </Select>
           <Input.Search
             style={{ width: "calc(100% - 90px)" }}
@@ -403,7 +403,7 @@ function SearchPage(props) {
               overflow: "auto",
               padding: "0 16px",
             }}
-            itemLayout='horizontal'
+            itemLayout="horizontal"
             dataSource={data}
             locale={{ emptyText: "No Results" }}
             renderItem={(item) => (
@@ -431,15 +431,15 @@ function SearchPage(props) {
                 }
               >
                 <List.Item
-                  className='search-item'
+                  className="search-item"
                   onClick={() => {
                     playYoutube(item);
                   }}
                   actions={[
                     <Button
-                      shape='circle'
+                      shape="circle"
                       icon={<PlayArrowSharp />}
-                      type='text'
+                      type="text"
                       onClick={() => {
                         playYoutube(item);
                       }}
@@ -453,7 +453,7 @@ function SearchPage(props) {
                           height: 60,
                           width: 60,
                         }}
-                        shape='square'
+                        shape="square"
                         src={item.thumbnails[0].url}
                       />
                     }
@@ -462,13 +462,13 @@ function SearchPage(props) {
                       <>
                         {item.artists.map((artist) => artist.name).join(", ")}
 
-                        <em className='album-name-track-mobile'>
+                        <em className="album-name-track-mobile">
                           {item.album.name}
                         </em>
                       </>
                     }
                   />
-                  <p className='album-name-track'>{item.album.name}</p>
+                  <p className="album-name-track">{item.album.name}</p>
                 </List.Item>
               </Dropdown>
             )}
@@ -492,7 +492,7 @@ function SearchPage(props) {
               data.map((album) => (
                 <Card
                   style={{ width: 226 }}
-                  className='hoverable-card'
+                  className="hoverable-card"
                   onClick={() => {
                     navigate("/album/" + album.albumId);
                   }}
@@ -501,7 +501,7 @@ function SearchPage(props) {
                     album.thumbnails &&
                     album.thumbnails[album.thumbnails.length - 1] && (
                       <img
-                        alt='cover'
+                        alt="cover"
                         src={album.thumbnails[album.thumbnails.length - 1].url}
                       />
                     )
