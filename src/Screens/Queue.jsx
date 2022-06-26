@@ -2,6 +2,7 @@ import store from "../store";
 import { List, Dropdown, Menu, Button, Avatar } from "antd";
 import { PlayArrowSharp } from "@mui/icons-material";
 import { MinusOutlined, PlayCircleFilled } from "@ant-design/icons";
+import { PageHeader } from "antd";
 
 function copy(mainObj) {
   let objCopy = {}; // objCopy will store a copy of the mainObj
@@ -54,14 +55,10 @@ function Queue() {
   };
 
   return (
-    <div
-      style={{
-        overflow: "auto",
-      }}
-    >
+    <div className="album-list">
+      <PageHeader title="Queue" />
       {queue && queue.length > 0 && (
         <List
-          className="album-list"
           style={{
             marginTop: "1rem",
             overflow: "auto",

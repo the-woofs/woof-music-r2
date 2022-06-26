@@ -147,13 +147,24 @@ function Playlist() {
           )}
           <>
             <div className="album-info">
-              <Typography.Title className="title" level={1}>
-                {data && data.name && data.name}
-              </Typography.Title>
+              <div style={{ marginBottom: "1rem" }}>
+                <Typography.Title
+                  className="title"
+                  level={1}
+                  style={{ marginBottom: "0.5rem" }}
+                >
+                  {data && data.name && data.name}
+                </Typography.Title>
+                <div className="album-sub">
+                  <Typography.Text style={{ paddingLeft: "5px" }}>
+                    {data && data.description && data.description}
+                  </Typography.Text>
+                </div>
+              </div>
 
-              <div className="album-sub">
-                {tracks && (
-                  <div style={{ marginRight: "14px" }}>
+              <div>
+                <div className="album-sub">
+                  {tracks && (
                     <Button
                       onClick={() => {
                         playFromAlbum(tracks, tracks[0], 0);
@@ -162,17 +173,17 @@ function Playlist() {
                       shape="circle"
                       icon={<CaretRightOutlined />}
                     ></Button>
-                  </div>
-                )}
-                <Typography.Text>
-                  {tracks && tracks.length && (
-                    <>
-                      {tracks.length === 1 && <>1 song</>}
-                      {tracks.length === 0 && <>No songs</>}
-                      {tracks.length > 1 && <>{tracks.length} songs</>}
-                    </>
                   )}
-                </Typography.Text>
+                  <Typography.Text>
+                    {tracks && tracks.length && (
+                      <>
+                        {tracks.length === 1 && <>1 song</>}
+                        {tracks.length === 0 && <>No songs</>}
+                        {tracks.length > 1 && <>{tracks.length} songs</>}
+                      </>
+                    )}
+                  </Typography.Text>
+                </div>
               </div>
             </div>
           </>
