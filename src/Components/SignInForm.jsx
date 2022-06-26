@@ -44,36 +44,36 @@ function SignInForm() {
 
   return (
     <Form
-      name='basic'
+      name="basic"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 32 }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      autoComplete='off'
+      autoComplete="off"
     >
       <Form.Item
-        name='email'
+        name="email"
         rules={[{ required: true, message: "Please input your email." }]}
       >
         <Input
-          placeholder='Email Address'
-          prefix={<MailOutlined className='site-form-item-icon' />}
+          placeholder="Email Address"
+          prefix={<MailOutlined className="site-form-item-icon" />}
         />
       </Form.Item>
 
       <Form.Item
-        name='password'
+        name="password"
         rules={[{ required: true, message: "Please input your password." }]}
       >
         <Input.Password
-          placeholder='Password'
-          prefix={<KeyOutlined className='site-form-item-icon' />}
+          placeholder="Password"
+          prefix={<KeyOutlined className="site-form-item-icon" />}
         />
       </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 0, span: 32 }}>
-        <Button type='primary' htmlType='submit'>
+        <Button type="primary" htmlType="submit">
           Sign In
         </Button>
       </Form.Item>

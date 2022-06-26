@@ -9,8 +9,8 @@ import { Slider } from "antd";
 function Right() {
   const [volume, setVolume] = store.useState("volume");
   return (
-    <div className='right-component'>
-      <div className='volume'>
+    <div className="right-component">
+      <div className="volume">
         {volume === 0 && <VolumeMuteIcon />}
         {volume >= 5 && <VolumeUpIcon />}
         {volume < 5 && volume > 0 && <VolumeDownIcon />}

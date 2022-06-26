@@ -10,10 +10,10 @@ function Login() {
   const [isNew, setIsNew] = useState(false);
 
   return (
-    <div className='RootContainer'>
-      <div className='InnerGrid'>
+    <div className="RootContainer">
+      <div className="InnerGrid">
         {!isNew && (
-          <Card title='Sign In' className='Card'>
+          <Card title="Sign In" className="Card">
             <SignInForm />
             <p>
               Don't Have An Account?{" "}
@@ -22,7 +22,7 @@ function Login() {
           </Card>
         )}
         {isNew && (
-          <Card title='Sign Up' className='Card'>
+          <Card title="Sign Up" className="Card">
             <SignUpForm />
             <p>
               Already Have An Account?{" "}

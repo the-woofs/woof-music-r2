@@ -8,7 +8,7 @@ function Left() {
   const [track] = store.useState("playingTrack");
 
   return (
-    <div className='left-component'>
+    <div className="left-component">
       {track && (
         <>
           <Meta
@@ -27,7 +27,7 @@ function Left() {
                     : "https://via.placeholder.com/150"
                 }
                 size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
-                shape='square'
+                shape="square"
               />
             }
             title={track.name}
@@ -51,7 +51,7 @@ function Left() {
             <Avatar
               src={"https://via.placeholder.com/150"}
               size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
-              shape='square'
+              shape="square"
             />
           }
         />

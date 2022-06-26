@@ -147,25 +147,25 @@ function Album() {
   };
 
   return (
-    <div style={{ overflow: "auto" }} className='album-list'>
-      <div className='album-head'>
+    <div style={{ overflow: "auto" }} className="album-list">
+      <div className="album-head">
         {data && data.thumbnails && (
           <img
-            className='album-cover'
-            alt='cover'
+            className="album-cover"
+            alt="cover"
             src={data.thumbnails[3].url}
           />
         )}
         <>
-          <div className='album-info'>
-            <Typography.Title className='title' level={1}>
+          <div className="album-info">
+            <Typography.Title className="title" level={1}>
               {data && data.name}
             </Typography.Title>
-            <div className='album-sub'>
+            <div className="album-sub">
               {data && data.artists && (
-                <Avatar.Group maxCount={2} size='medium'>
+                <Avatar.Group maxCount={2} size="medium">
                   {avatars.map((avatar) => (
-                    <Avatar src={avatar} alt='artist' />
+                    <Avatar src={avatar} alt="artist" />
                   ))}
                 </Avatar.Group>
               )}
@@ -174,7 +174,7 @@ function Album() {
                 style={{
                   margin: 0,
                 }}
-                className='artists-name-album'
+                className="artists-name-album"
               >
                 {data.artists &&
                   data.artists.map((artist) => artist.name).join(", ")}
@@ -187,8 +187,8 @@ function Album() {
                     onClick={() => {
                       playFromAlbum(data.songs, data.songs[0], 0);
                     }}
-                    type='primary'
-                    shape='circle'
+                    type="primary"
+                    shape="circle"
                     icon={<CaretRightOutlined />}
                   ></Button>
                 </div>
@@ -213,7 +213,7 @@ function Album() {
               padding: "1% 2.5%",
             }}
             dataSource={data.songs}
-            itemLayout='horizontal'
+            itemLayout="horizontal"
             renderItem={(item, index) => (
               <Dropdown
                 trigger={["contextMenu"]}
@@ -242,15 +242,15 @@ function Album() {
                 }
               >
                 <List.Item
-                  className='search-item'
+                  className="search-item"
                   onClick={() => {
                     playFromAlbum(data.songs, item, index);
                   }}
                   actions={[
                     <Button
-                      shape='circle'
+                      shape="circle"
                       icon={<PlayArrowSharp />}
-                      type='text'
+                      type="text"
                       onClick={() => {
                         playFromAlbum(data.songs, item, index);
                       }}
@@ -264,7 +264,7 @@ function Album() {
                           height: 60,
                           width: 60,
                         }}
-                        shape='square'
+                        shape="square"
                         src={item.thumbnails[0].url}
                       />
                     }

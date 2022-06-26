@@ -37,8 +37,8 @@ function Center() {
   }, [currentTime]);
 
   return (
-    <div className='center-component'>
-      <div className='top-ctr'>
+    <div className="center-component">
+      <div className="top-ctr">
         <div />
         <Button
           onClick={() => {
@@ -51,12 +51,12 @@ function Center() {
               store.setState("playingTrack", queue[nextTrackId]);
             }
           }}
-          shape='circle'
+          shape="circle"
           icon={<StepBackwardFilled />}
         />
         <Button
-          shape='circle'
-          size='large'
+          shape="circle"
+          size="large"
           icon={isPlaying ? <PauseOutlined /> : <CaretRightFilled />}
           onClick={() => setIsPlaying(!isPlaying)}
         />
@@ -68,14 +68,14 @@ function Center() {
               store.setState("playingTrack", queue[nextTrackId]);
             }
           }}
-          shape='circle'
+          shape="circle"
           icon={<StepForwardFilled />}
         />
         <div />
       </div>
-      <div className='btm-ctr'>
-        <div className='btm-ctr-i'>
-          <div className='time'>{currentTimeDisplay}</div>
+      <div className="btm-ctr">
+        <div className="btm-ctr-i">
+          <div className="time">{currentTimeDisplay}</div>
           <Slider
             tooltipVisible={false}
             min={0}
@@ -87,7 +87,7 @@ function Center() {
             }}
           />
           {playerRef.current && (
-            <div className='time'>
+            <div className="time">
               <>{secondsToHms(playerRef.current.getDuration())}</>
             </div>
           )}

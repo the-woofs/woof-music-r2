@@ -78,14 +78,14 @@ function PlaylistsVer() {
             {data.map((playlist) => (
               <Card
                 style={{ width: 226 }}
-                className='hoverable-card'
+                className="hoverable-card"
                 onClick={() => {
                   navigate("/playlist/" + playlist.id);
                 }}
                 cover={
                   playlist &&
                   playlist.thumbnail && (
-                    <img alt='cover' src={playlist.thumbnail} />
+                    <img alt="cover" src={playlist.thumbnail} />
                   )
                 }
               >
@@ -95,11 +95,11 @@ function PlaylistsVer() {
                     playlist.cover ? (
                       <Avatar
                         src={playlist.cover}
-                        size='large'
-                        shape='square'
+                        size="large"
+                        shape="square"
                       />
                     ) : (
-                      <Album fontSize='large' />
+                      <Album fontSize="large" />
                     )
                   }
                   description={
@@ -121,7 +121,7 @@ function Playlists() {
     return (
       <div>
         <h1>You must be logged in to see your playlists.</h1>
-        <a href='/login'>Login or Sign Up here.</a>
+        <a href="/login">Login or Sign Up here.</a>
       </div>
     );
   }
@@ -132,7 +132,7 @@ function Main() {
   return (
     <>
       <PageHeader
-        title='Woof Music Alpha'
+        title="Woof Music Alpha"
         avatar={{ src: "https://github.com/the-woofs.png" }}
       />
       <div
@@ -142,7 +142,7 @@ function Main() {
           overflowX: "hidden",
           padding: "0 2rem",
         }}
-        className='album-history'
+        className="album-history"
       >
         <Playlists />
       </div>

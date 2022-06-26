@@ -11,7 +11,7 @@ function Main() {
   return (
     <>
       <PageHeader
-        title='Woof Music Alpha'
+        title="Woof Music Alpha"
         avatar={{ src: "https://github.com/the-woofs.png" }}
       />
       <div
@@ -21,7 +21,7 @@ function Main() {
           overflowX: "hidden",
           padding: "0 2rem",
         }}
-        className='album-history'
+        className="album-history"
       >
         <Playlists />
         <Divider />
@@ -40,7 +40,7 @@ function Main() {
               {data.map((album) => (
                 <Card
                   style={{ width: 226 }}
-                  className='hoverable-card'
+                  className="hoverable-card"
                   onClick={() => {
                     navigate("/album/" + album.albumId);
                   }}
@@ -49,7 +49,7 @@ function Main() {
                     album.thumbnails &&
                     album.thumbnails[album.thumbnails.length - 1] && (
                       <img
-                        alt='cover'
+                        alt="cover"
                         src={album.thumbnails[album.thumbnails.length - 1].url}
                       />
                     )

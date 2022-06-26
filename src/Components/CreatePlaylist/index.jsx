@@ -41,7 +41,7 @@ function CreatePlaylist(props) {
     if (visible && !user && !loading) {
       Modal.error({
         title: "You must be logged in to create a playlist",
-        content: <a href='/login'>Login or Sign Up here.</a>,
+        content: <a href="/login">Login or Sign Up here.</a>,
       });
       setIsCreatingPlaylist(false);
     }
@@ -79,19 +79,19 @@ function CreatePlaylist(props) {
             setPlaylistName("");
             setIsCreatingPlaylist(false);
           }}
-          okText='Create'
+          okText="Create"
           visible={visible}
           centered
-          title='Create Playlist'
+          title="Create Playlist"
         >
           <Form
-            name='basic'
+            name="basic"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
             initialValues={{ remember: true }}
-            autoComplete='off'
+            autoComplete="off"
           >
-            <Form.Item required label='Name'>
+            <Form.Item required label="Name">
               <Input
                 onChange={(e) => {
                   setPlaylistName(e.target.value);
@@ -100,7 +100,7 @@ function CreatePlaylist(props) {
                 placeholder="Set the playlist's name"
               />
             </Form.Item>
-            <Form.Item required label='Description'>
+            <Form.Item required label="Description">
               <Input
                 onChange={(e) => {
                   setPlaylistDescription(e.target.value);
@@ -109,7 +109,7 @@ function CreatePlaylist(props) {
                 placeholder="Set the playlist's description"
               />
             </Form.Item>
-            <Form.Item label='Cover'>
+            <Form.Item label="Cover">
               <Input
                 onChange={(e) => {
                   setPlaylistCover(e.target.value);
@@ -118,9 +118,9 @@ function CreatePlaylist(props) {
                 placeholder="Set the playlist's cover art url"
               />
               <a
-                target='_blank'
-                rel='noreferrer'
-                href='https://acutewoof.is-a.dev/random-unsplash'
+                target="_blank"
+                rel="noreferrer"
+                href="https://acutewoof.is-a.dev/random-unsplash"
               >
                 Get random image from Unsplash
               </a>

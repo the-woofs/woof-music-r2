@@ -15,13 +15,13 @@ function Footer() {
     <>
       <div className={!isCollapsed ? "footer" : ""}>
         <>
-          <Left className='lft' />
+          <Left className="lft" />
           <Center />
-          <Right className='rt' />
+          <Right className="rt" />
         </>
       </div>
-      <div className='mobile-footer'>
-        <Mobile className='mobile' />
+      <div className="mobile-footer">
+        <Mobile className="mobile" />
         <Space
           style={{
             width: "100vw",
@@ -35,8 +35,8 @@ function Footer() {
             onClick={() => {
               navigate("/");
             }}
-            type='text'
-            shape='round'
+            type="text"
+            shape="round"
             icon={<HomeFilled />}
           >
             Home
@@ -45,15 +45,15 @@ function Footer() {
             onClick={() => {
               navigate("/search");
             }}
-            type='text'
-            shape='round'
+            type="text"
+            shape="round"
             icon={<SearchOutlined />}
           >
             Search
           </Button>
           <Button
-            type='text'
-            shape='round'
+            type="text"
+            shape="round"
             onClick={() => {
               navigate("/playlist");
             }}

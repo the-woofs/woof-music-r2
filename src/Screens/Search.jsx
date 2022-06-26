@@ -92,7 +92,7 @@ function SearchPage() {
   };
 
   return (
-    <div className='search-page'>
+    <div className="search-page">
       <div
         style={{
           margin: "1.5rem 2rem",
@@ -106,8 +106,8 @@ function SearchPage() {
             }}
             style={{ width: "90px" }}
           >
-            <Option value='song'>Songs</Option>
-            <Option value='album'>Albums</Option>
+            <Option value="song">Songs</Option>
+            <Option value="album">Albums</Option>
           </Select>
           <Input.Search
             style={{ width: "calc(100% - 90px)" }}
@@ -126,7 +126,7 @@ function SearchPage() {
               overflow: "auto",
               padding: "0 16px",
             }}
-            itemLayout='horizontal'
+            itemLayout="horizontal"
             dataSource={data}
             locale={{ emptyText: "No Results" }}
             renderItem={(item) => (
@@ -154,15 +154,15 @@ function SearchPage() {
                 }
               >
                 <List.Item
-                  className='search-item'
+                  className="search-item"
                   onClick={() => {
                     playYoutube(item);
                   }}
                   actions={[
                     <Button
-                      shape='circle'
+                      shape="circle"
                       icon={<PlayArrowSharp />}
-                      type='text'
+                      type="text"
                       onClick={() => {
                         playYoutube(item);
                       }}
@@ -176,7 +176,7 @@ function SearchPage() {
                           height: 60,
                           width: 60,
                         }}
-                        shape='square'
+                        shape="square"
                         src={item.thumbnails[0].url}
                       />
                     }
@@ -185,13 +185,13 @@ function SearchPage() {
                       <>
                         {item.artists.map((artist) => artist.name).join(", ")}
 
-                        <em className='album-name-track-mobile'>
+                        <em className="album-name-track-mobile">
                           {item.album.name}
                         </em>
                       </>
                     }
                   />
-                  <p className='album-name-track'>{item.album.name}</p>
+                  <p className="album-name-track">{item.album.name}</p>
                 </List.Item>
               </Dropdown>
             )}
@@ -215,7 +215,7 @@ function SearchPage() {
               data.map((album) => (
                 <Card
                   style={{ width: 226 }}
-                  className='hoverable-card'
+                  className="hoverable-card"
                   onClick={() => {
                     navigate("/album/" + album.albumId);
                   }}
@@ -224,7 +224,7 @@ function SearchPage() {
                     album.thumbnails &&
                     album.thumbnails[album.thumbnails.length - 1] && (
                       <img
-                        alt='cover'
+                        alt="cover"
                         src={album.thumbnails[album.thumbnails.length - 1].url}
                       />
                     )
