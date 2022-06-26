@@ -2,6 +2,9 @@
   "name": "woof-music-r2",
   "version": "0.1.0",
   "private": true,
+  "description": "Music player using YouTube Music (without area restrictions in most cases) and Youtube.",
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.9.3",
@@ -36,7 +39,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
+    "electron": "wait-on tcp:3000 && electron .",
+    "package": "react-scripts build && electron-forge package",
+    "make-mac": "react-scripts build && electron-forge make --platform darwin",
+    "make-linux": "react-scripts build && electron-forge make --platform linux",
+    "make": "react-scripts build && electron-forge make"
   },
   "eslintConfig": {
     "extends": [
@@ -55,5 +64,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.2",
+    "electron-prebuilt-compile": "8.2.0",
+    "wait-on": "^6.0.1"
   }
 }
