@@ -1,5 +1,5 @@
 import store from "./store";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "antd/dist/antd.dark.min.css";
 
 import Main from "./Screens/Main";
