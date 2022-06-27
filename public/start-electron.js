@@ -32,3 +32,9 @@ app.on("activate", () => {
     createWindow();
   }
 });
+
+const autoUpdater = require("electron-updater");
+
+app.on("ready", () => {
+  autoUpdater.checkForUpdatesAndNotify();
+});

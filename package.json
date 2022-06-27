@@ -19,6 +19,7 @@
     "concurrently": "^7.2.2",
     "electron-forge": "^5.2.4",
     "electron-is-dev": "^2.0.0",
+    "electron-updater": "^5.0.5",
     "emotion": "^11.0.0",
     "firebase": "^9.8.2",
     "path": "^0.12.7",
@@ -38,7 +39,9 @@
     "electron-package": "./node_modules/.bin/electron-builder -c.extraMetadata.main=build/start-electron.js",
     "preelectron-package": "yarn run build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder --mac --windows --linux",
+    "release": "electron-builder --mac --windows --linux --publish always",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
@@ -47,6 +50,22 @@
     "make-mac": "react-scripts build && electron-forge make --platform darwin",
     "make-linux": "react-scripts build && electron-forge make --platform linux",
     "make": "react-scripts build && electron-forge make"
+  },
+  "build": {
+    "appId": "com.the-woofs.woof-music",
+    "productName": "Woof Music",
+    "mac": {
+      "category": "public.app-category.music"
+    },
+    "dmg": {
+      "icon": false
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -68,6 +87,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.2.2",
+    "electron-builder": "^23.1.0",
     "electron-prebuilt-compile": "8.2.0",
     "wait-on": "^6.0.1"
   }
