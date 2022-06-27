@@ -6,7 +6,7 @@
     "woof-music": {
       "hosting": {
         "electron": [
-          "electron-woof-chat"
+          "electron-woof-music"
         ]
       }
     }
