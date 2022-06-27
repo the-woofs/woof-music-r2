@@ -1,6 +1,6 @@
 {
   "name": "woof-music-r2",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Music player using YouTube Music (without area restrictions in most cases) and Youtube.",
   "license": "MIT",
