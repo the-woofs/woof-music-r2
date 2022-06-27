@@ -121,7 +121,7 @@ function Playlists() {
     return (
       <div>
         <h1>You must be logged in to see your playlists.</h1>
-        <a href="/login">Login or Sign Up here.</a>
+        <a href="/loginPage">Login or Sign Up here.</a>
       </div>
     );
   }

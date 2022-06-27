@@ -187,7 +187,7 @@ function Redirects() {
         <Route path="/album/:id" element={<Album />} />
         <Route path="/status" element={<Status />} />
         <Route path="/queue" element={<Queue />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/loginPage" element={<Login />} />
       </Routes>
     </>
   );

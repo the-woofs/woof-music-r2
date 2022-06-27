@@ -41,7 +41,7 @@ function CreatePlaylist(props) {
     if (visible && !user && !loading) {
       Modal.error({
         title: "You must be logged in to create a playlist",
-        content: <a href="/login">Login or Sign Up here.</a>,
+        content: <a href="/loginPage">Login or Sign Up here.</a>,
       });
       setIsCreatingPlaylist(false);
     }
