@@ -80,7 +80,7 @@
         {
           "name": "@electron-forge/publisher-github",
           "config": {
-            "repository": {
+            "github_repository": {
               "owner": "the-woofs",
               "name": "woof-music-r2"
             }
