@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Music player using YouTube Music (without area restrictions in most cases) and Youtube.",
+  "author": "acutewoof",
   "license": "MIT",
   "main": "public/electron.js",
   "homepage": "./",
