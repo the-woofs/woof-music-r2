@@ -67,8 +67,24 @@
     ]
   },
   "devDependencies": {
+    "@electron-forge/publisher-github": "^6.0.0-beta.64",
     "concurrently": "^7.2.2",
     "electron-prebuilt-compile": "8.2.0",
     "wait-on": "^6.0.1"
+  },
+  "config": {
+    "forge": {
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "acutewoof",
+              "name": "woof-music"
+            }
+          }
+        }
+      ]
+    }
   }
 }
