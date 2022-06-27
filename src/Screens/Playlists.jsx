@@ -1,4 +1,4 @@
-import { Avatar, Card, PageHeader, Skeleton, Typography } from "antd";
+import { Avatar, Button, Card, PageHeader, Skeleton, Typography } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
@@ -117,11 +117,20 @@ function PlaylistsVer() {
 }
 
 function Playlists() {
+  const navigate = useNavigate();
+
   if (!auth.currentUser) {
     return (
       <div>
         <h1>You must be logged in to see your playlists.</h1>
-        <a href="/loginPage">Login or Sign Up here.</a>
+        <Button
+          type="link"
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Login or Sign Up here.
+        </Button>
       </div>
     );
   }
