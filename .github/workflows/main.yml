@@ -1,0 +1,31 @@
+name: Build Electron App
+
+on:
+  release:
+    types: [created, updated]
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17
+
+      - name: Build Electron App
+        run: yarn && yarn run build && yarn run electron-builder
+
+      - name: Publish to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: "dist/woof-music-r2*"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
