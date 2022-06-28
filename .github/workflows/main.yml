@@ -1,8 +1,8 @@
-name: Build/release
+name: Build Electron App
 
 on:
   release:
-    types: [created, updated, published]
+    types: [created, updated]
 
 jobs:
   release:
