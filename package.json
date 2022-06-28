@@ -34,7 +34,7 @@
   },
   "scripts": {
     "electron-dev": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-package": "./node_modules/.bin/electron-builder -c.extraMetadata.main=build/start-electron.js -p 'never'",
+    "electron-package": "./node_modules/.bin/electron-builder -c.extraMetadata.main=build/start-electron.js -p never",
     "preelectron-package": "yarn run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
