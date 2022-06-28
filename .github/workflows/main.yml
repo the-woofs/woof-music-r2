@@ -24,7 +24,7 @@ jobs:
           node-version: 17
 
       - name: Build Electron App
-        run: yarn && yarn run build && GH_TOKEN=${{ secrets.GITHUB_TOKEN }} yarn run electron-package
+        run: yarn && yarn run build && yarn run electron-package
 
       - name: Publish to GitHub
         uses: AButler/upload-release-assets@v2.0
