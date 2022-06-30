@@ -48,15 +48,12 @@ function SearchPage() {
 
   const playYoutube = async function (track) {
     const res = await fetch(
-      `https://youtube-scrape.acutewoof.repl.co//api/search?q=${
+      `https://youtube-scrape.acutewoof.repl.co/api/search?q=${
         track.name
       }%20${track.artists.map((artist) => artist.name).join(", ")}
-      )}`,
+      `,
       {
         method: "GET",
-        headers: {
-          Mode: "no-cors",
-        },
       }
     );
     const data = await res.json();
@@ -71,15 +68,12 @@ function SearchPage() {
 
   const queueYoutube = async function (track) {
     const res = await fetch(
-      `https://youtube-scrape.acutewoof.repl.co//api/search?q=${
+      `https://youtube-scrape.acutewoof.repl.co/api/search?q=${
         track.name
       }%20${track.artists.map((artist) => artist.name).join(", ")}
-      )}`,
+      `,
       {
         method: "GET",
-        headers: {
-          Mode: "no-cors",
-        },
       }
     );
     const data = await res.json();

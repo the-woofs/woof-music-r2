@@ -325,15 +325,12 @@ function SearchPage(props) {
 
   const playYoutube = async function (track) {
     const res = await fetch(
-      `https://youtube-scrape.acutewoof.repl.co//api/search?q=${
+      `https://youtube-scrape.acutewoof.repl.co/api/search?q=${
         track.name
       }%20${track.artists.map((artist) => artist.name).join(", ")}
-      )}`,
+      `,
       {
         method: "GET",
-        headers: {
-          Mode: "no-cors",
-        },
       }
     );
     const data = await res.json();
@@ -353,12 +350,9 @@ function SearchPage(props) {
       `https://cors-anywhere.acutewoof.repl.co/152.67.77.86:8380/api/search?q=${
         track.name
       }%20${track.artists.map((artist) => artist.name).join(", ")}
-      )}`,
+      `,
       {
         method: "GET",
-        headers: {
-          Mode: "no-cors",
-        },
       }
     );
     const data = await res.json();
