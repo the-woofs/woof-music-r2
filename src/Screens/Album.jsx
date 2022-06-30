@@ -44,9 +44,6 @@ function Album() {
       `https://yt-dlapi.acutewoof.repl.co/api/get/album/${id}`,
       {
         method: "GET",
-        headers: {
-          Mode: "no-cors",
-        },
       }
     );
     const data = await res.json();
