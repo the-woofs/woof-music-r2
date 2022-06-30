@@ -48,9 +48,9 @@ function SearchPage() {
 
   const playYoutube = async function (track) {
     const res = await fetch(
-      `http://152.67.77.86:8380/api/search?q=${track.name}%20${track.artists
-        .map((artist) => artist.name)
-        .join(", ")}
+      `https://youtube-scrape.acutewoof.repl.co//api/search?q=${
+        track.name
+      }%20${track.artists.map((artist) => artist.name).join(", ")}
       )}`,
       {
         method: "GET",
@@ -71,9 +71,9 @@ function SearchPage() {
 
   const queueYoutube = async function (track) {
     const res = await fetch(
-      `http://152.67.77.86:8380/api/search?q=${track.name}%20${track.artists
-        .map((artist) => artist.name)
-        .join(", ")}
+      `https://youtube-scrape.acutewoof.repl.co//api/search?q=${
+        track.name
+      }%20${track.artists.map((artist) => artist.name).join(", ")}
       )}`,
       {
         method: "GET",
