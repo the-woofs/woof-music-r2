@@ -301,8 +301,6 @@ function SearchPage(props) {
   const [, setQueue] = store.useState("queue");
   const [searchMode, setSearchMode] = useState("song");
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     console.log(data);
   }, [data]);
