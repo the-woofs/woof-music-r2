@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "Music player using YouTube Music (without area restrictions in most cases) and Youtube.",
-  "main": "public/electron.js",
+  "author": "acutewoof",
+  "license": "MIT",
+  "main": "public/start-electron.js",
   "homepage": "./",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -14,13 +16,12 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "electron-is-dev": "^2.0.0",
     "antd": "4.20.6",
     "concurrently": "^7.2.2",
-    "electron": "^19.0.6",
-    "electron-builder": "^23.1.0",
-    "electron-is-dev": "^2.0.0",
     "emotion": "^11.0.0",
     "firebase": "^9.8.2",
+    "path": "^0.12.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-firebase-hooks": "^5.0.3",
@@ -45,7 +46,8 @@
     "package": "react-scripts build && electron-forge package",
     "make-mac": "react-scripts build && electron-forge make --platform darwin",
     "make-linux": "react-scripts build && electron-forge make --platform linux",
-    "make": "react-scripts build && electron-forge make"
+    "make": "react-scripts build && electron-forge make",
+    "publish": "react-scripts build && electron-forge publish"
   },
   "eslintConfig": {
     "extends": [
@@ -66,8 +68,12 @@
     ]
   },
   "devDependencies": {
+    "@electron-forge/publisher-github": "^6.0.0-beta.64",
     "concurrently": "^7.2.2",
     "electron-prebuilt-compile": "8.2.0",
-    "wait-on": "^6.0.1"
+    "wait-on": "^6.0.1",
+    "electron-builder": "^23.1.0",
+    "electron-forge": "^5.2.4",
+    "electron-is-dev": "^2.0.0"
   }
 }

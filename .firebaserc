@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "woof-music"
+  },
+  "targets": {
+    "woof-music": {
+      "hosting": {
+        "electron": [
+          "electron-woof-music"
+        ]
+      }
+    }
   }
 }

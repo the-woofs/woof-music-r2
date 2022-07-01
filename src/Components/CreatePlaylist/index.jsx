@@ -1,4 +1,4 @@
-import { Form, Input, Modal } from "antd";
+import { Button, Form, Input, Modal } from "antd";
 import store from "../../store";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
@@ -12,6 +12,7 @@ import {
   getFirestore,
   updateDoc,
 } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCSGprUw_eQ-0sEVCLctStEmfunuP5upZU",
@@ -37,15 +38,26 @@ function CreatePlaylist(props) {
   const [playlistDescription, setPlaylistDescription] = useState("");
   const [playlistCover, setPlaylistCover] = useState("");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (visible && !user && !loading) {
       Modal.error({
         title: "You must be logged in to create a playlist",
-        content: <a href="/login">Login or Sign Up here.</a>,
+        content: (
+          <Button
+            type="link"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Login or Sign Up here.
+          </Button>
+        ),
       });
       setIsCreatingPlaylist(false);
     }
-  }, [setIsCreatingPlaylist, visible, user, loading]);
+  }, [setIsCreatingPlaylist, visible, user, loading, navigate]);
 
   return (
     <>

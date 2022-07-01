@@ -2,8 +2,7 @@ const electron = require("electron"),
   app = electron.app,
   BrowserWindow = electron.BrowserWindow;
 
-const path = require("path"),
-  isDev = require("electron-is-dev");
+const isDev = require("electron-is-dev");
 
 let mainWindow;
 
@@ -11,7 +10,8 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({ width: 480, height: 320 });
   const appUrl = isDev
     ? "http://localhost:3000"
-    : `file://${path.join(__dirname, "../build/index.html")}`;
+    : "https://electron-woof-music.web.app";
+
   mainWindow.loadURL(appUrl);
   mainWindow.maximize();
   mainWindow.setFullScreen(true);
