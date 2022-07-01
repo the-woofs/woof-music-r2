@@ -31,7 +31,7 @@ import { getAuth } from "firebase/auth";
 import Meta from "antd/lib/card/Meta";
 import { Option } from "antd/lib/mentions";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const db = getFirestore();
 const auth = getAuth();
