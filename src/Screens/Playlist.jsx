@@ -10,9 +10,11 @@ import {
   Select,
   Card,
   Spin,
+  Popconfirm,
 } from "antd";
 import {
   CaretRightOutlined,
+  CloseOutlined,
   LoadingOutlined,
   PlayCircleFilled,
   PlusOutlined,
@@ -25,7 +27,13 @@ import {
   useCollectionData,
   useDocumentData,
 } from "react-firebase-hooks/firestore";
-import { getFirestore, collection, doc, addDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  doc,
+  setDoc,
+  deleteDoc,
+} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 import Meta from "antd/lib/card/Meta";
@@ -131,6 +139,10 @@ function Playlist() {
     console.log(queue);
   };
 
+  const removeFromPlaylist = async (track) => {
+    await deleteDoc(doc(tracksRef, track.id));
+  };
+
   return (
     <>
       <div style={{ overflow: "auto" }} className="album-list">
@@ -229,6 +241,22 @@ function Playlist() {
                       >
                         Add To Queue
                       </Menu.Item>
+                      <Popconfirm
+                        title={`Are you sure you want to remove "${
+                          item.name
+                        } - ${item.artists.map(
+                          (artist) => artist.name
+                        )}" from this playlist?`}
+                        onConfirm={() => {
+                          removeFromPlaylist(item);
+                        }}
+                        okText="Yes"
+                        cancelText="No"
+                      >
+                        <Menu.Item icon={<CloseOutlined />}>
+                          Remove From Queue
+                        </Menu.Item>
+                      </Popconfirm>
                     </Menu>
                   }
                 >
@@ -362,10 +390,13 @@ function SearchPage(props) {
     data.results[0].video.videoId = data.results[0].video.url.split("=")[1];
     const addingData = data.results[0].video;
     console.log(addingData);
-    await addDoc(
-      collection(
-        doc(collection(db, "u", auth.currentUser.uid, "playlists"), id),
-        "tracks"
+    await setDoc(
+      doc(
+        collection(
+          doc(collection(db, "u", auth.currentUser.uid, "playlists"), id),
+          "tracks"
+        ),
+        addingData.id
       ),
       addingData
     );
