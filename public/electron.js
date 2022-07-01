@@ -21,6 +21,7 @@ app.on("ready", createWindow);
 app.on("window-all-closed", () => {
   // Follow OS convention on whether to quit app when
   // all windows are closed.
+
   if (process.platform !== "darwin") {
     app.quit();
   }
@@ -29,6 +30,6 @@ app.on("activate", () => {
   // If the app is still open, but no windows are open,
   // create one when the app comes into focus.
   if (mainWindow === null) {
-    createWindow();
+  createWindow();
   }
 });

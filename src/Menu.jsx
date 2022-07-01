@@ -1,11 +1,12 @@
 import {
   BarsOutlined,
   DatabaseFilled,
+  DownloadOutlined,
   HomeFilled,
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Menu } from "antd";
+import { Divider, Menu } from "antd";
 import { useNavigate } from "react-router-dom";
 import store from "./store";
 
@@ -73,6 +74,17 @@ function MenuItems() {
           icon={<PlusOutlined />}
         >
           Create Playlist
+        </Menu.Item>
+        <Divider />
+        <Menu.Item
+          key="download"
+          icon={<DownloadOutlined />}
+          onClick={() => {
+            window.location.href =
+              "https://github.com/the-woofs/woof-music-r2/releases";
+          }}
+        >
+          Download
         </Menu.Item>
       </Menu>
     </>

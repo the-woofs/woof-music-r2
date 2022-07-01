@@ -347,7 +347,7 @@ function SearchPage(props) {
 
   const addToPlaylist = async function (track) {
     const res = await fetch(
-      `https://cors-anywhere.acutewoof.repl.co/152.67.77.86:8380/api/search?q=${
+      `https://youtube-scrape.acutewoof.repl.co/api/search?q=${
         track.name
       }%20${track.artists.map((artist) => artist.name).join(", ")}
       `,
@@ -371,6 +371,16 @@ function SearchPage(props) {
       ),
       addingData
     );
+  };
+
+  const addAlbumToPlaylist = async function (albumId) {
+    const res = await fetch(
+      `https://yt-dlapi.acutewoof.repl.co/api/get/album/${albumId}`
+    );
+    const data = await res.json();
+    data.songs.forEach((track) => {
+      addToPlaylist(track);
+    });
   };
 
   return (
@@ -499,7 +509,7 @@ function SearchPage(props) {
                   style={{ width: 226 }}
                   className="hoverable-card"
                   onClick={() => {
-                    navigate("/album/" + album.albumId);
+                    addAlbumToPlaylist(album.albumId);
                   }}
                   cover={
                     album &&
