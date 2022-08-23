@@ -92,7 +92,6 @@ function App() {
         store.setState("volume", 10);
       }
       try {
-        playerRef.current.seekTo(progress);
       } catch (e) {
         console.log(e);
       }

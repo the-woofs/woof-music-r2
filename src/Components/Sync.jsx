@@ -5,6 +5,7 @@ import { getAuth } from "firebase/auth";
 import { collection, doc, getFirestore, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import store from "../store";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCSGprUw_eQ-0sEVCLctStEmfunuP5upZU",
@@ -27,6 +28,8 @@ function Sync(props) {
   const [syncError, setSyncError] = useState(null);
   const [synced, setSynced] = useState(false);
 
+  const [playingTrack] = store.useState("playingTrack");
+
   useEffect(() => {
     if (user && auth.currentUser) {
       setSynced(false);
@@ -34,7 +37,9 @@ function Sync(props) {
       setSyncError(false);
       const userRef = doc(collection(db, "u"), auth.currentUser.uid);
       updateDoc(userRef, {
-        localStorage: JSON.stringify(localStorage),
+        syncData: {
+          playingTrack: playingTrack,
+        },
       })
         .then(() => {
           console.log("User data updated successfully!");
@@ -54,7 +59,7 @@ function Sync(props) {
       setSyncError(true);
     }
     // eslint-disable-next-line
-  }, [localStorage, user]);
+  }, [playingTrack]);
 
   return (
     <>
