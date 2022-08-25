@@ -8,6 +8,7 @@ import { Launch, PlayArrow } from "@mui/icons-material";
 import store from "../../store";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import Sync from "../Sync";
 
 function Mobile() {
   const [track] = store.useState("playingTrack");
@@ -32,6 +33,7 @@ function Mobile() {
       className="mobile"
       style={location.pathname === "/status" ? { display: "none" } : {}}
     >
+      <Sync hidden />
       {track && (
         <>
           <Meta

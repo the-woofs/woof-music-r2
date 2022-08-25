@@ -45,6 +45,13 @@
   height: 100%;
 }
 
+.sync-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+
 .volume {
   width: 35%;
   display: grid;

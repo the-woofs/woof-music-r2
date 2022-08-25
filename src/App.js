@@ -50,7 +50,12 @@ store.setState("queue", [], persist);
 store.setState("volume", 7, persist);
 store.setState("isPlaying", false);
 store.setState("isSideBarCollapsed", false);
-store.setState("progress", 0, persist);
+if (!localStorage.getItem("progress")) {
+  console.log("No persistent progress data found, resetting progress.");
+  store.setState("progress", 0, persist);
+} else {
+  store.setState("progress", localStorage.getItem("progress"), persist);
+}
 store.setState("currentTime", 0, persist);
 store.setState("albumHistory", [], persist);
 store.setState("isCreatingPlaylist", false);
@@ -60,7 +65,7 @@ function App() {
   const [isCreatingPlaylist] = store.useState("isCreatingPlaylist");
   const [isPlaying] = store.useState("isPlaying");
   const [playingTrack] = store.useState("playingTrack");
-  const [, setProgress] = store.useState("progress");
+  const [progress, setProgress] = store.useState("progress");
   const [, setCurrentTime] = store.useState("currentTime");
   const [volume] = store.useState("volume");
   const [queue] = store.useState("queue");
@@ -87,10 +92,12 @@ function App() {
         store.setState("volume", 10);
       }
       try {
-        playerRef.current.seekTo(store.getState("progress"));
-      } catch {}
+        playerRef.current.seekTo(progress);
+      } catch (e) {
+        console.log(e);
+      }
     }
-  }, [playerRef]);
+  }, [playerRef, progress]);
 
   return (
     <>
