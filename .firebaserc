@@ -5,8 +5,8 @@
   "targets": {
     "woof-music": {
       "hosting": {
-        "electron": [
-          "electron-woof-music"
+        "main": [
+          "woof-music"
         ]
       }
     }
