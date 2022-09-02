@@ -4,7 +4,6 @@ import "antd/dist/antd.dark.min.css";
 
 import Main from "./Screens/Main";
 import Login from "./Screens/Login";
-import Artist from "./Screens/Artist";
 import { Main as Playlists } from "./Screens/Playlists";
 import Playlist from "./Screens/Playlist";
 import Search from "./Screens/Search";
@@ -12,6 +11,7 @@ import Queue from "./Screens/Queue";
 import Status from "./Screens/Status";
 import Album from "./Screens/Album";
 import Track from "./Screens/Track";
+import JoinRoom from "./Screens/JoinRoom";
 import Footer from "./Components/Footer";
 import { Layout } from "antd";
 import MenuItems from "./Menu";
@@ -59,6 +59,8 @@ if (!localStorage.getItem("progress")) {
 store.setState("currentTime", 0, persist);
 store.setState("albumHistory", [], persist);
 store.setState("isCreatingPlaylist", false);
+store.setState("isListeningAlong", false);
+store.setState("currentHost", "");
 
 function App() {
   const [isCollapsed, setIsCollapsed] = store.useState("isSideBarCollapsed");
@@ -189,11 +191,11 @@ function Redirects() {
         <Route path="/search" element={<Search noIn />} />
         <Route path="/search/:query" element={<Search />} />
         <Route path="/track/:id" element={<Track />} />
-        <Route path="/artist/:id" element={<Artist />} />
         <Route path="/album/:id" element={<Album />} />
         <Route path="/status" element={<Status />} />
         <Route path="/queue" element={<Queue />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/join/:id" element={<JoinRoom />} />
       </Routes>
     </>
   );
